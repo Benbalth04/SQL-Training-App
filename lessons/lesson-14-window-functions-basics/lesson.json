@@ -1,0 +1,66 @@
+{
+    "lesson-id": "lesson-14-window-functions-basics",
+    "title": "Lesson 14",
+    "subtitle": "Intro to Window Functions",
+    "lesson-order": 14,
+    "database-tables": [
+        {
+            "name": "Countries",
+            "priority": 1
+        }
+    ],
+    "exercise-tasks": [
+        {
+            "task-id": 14.1,
+            "description": "Compute the running total of the population for all countries ordered by population",
+            "correct-query": "SELECT\n  Name,\n  Population,\n  SUM(Population) OVER (ORDER BY Population) AS RunningTotal\nFROM Countries",
+            "verify-query": "SELECT Name, Population, SUM(Population) OVER (ORDER BY Population) AS RunningTotal FROM Countries",
+            "order-sensitive": false,
+            "exercise-order": 1,
+            "initial-query": "SELECT * FROM Countries",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        },
+        {
+            "task-id": 14.2,
+            "description": "Calculate the total population per region for each country using a window function",
+            "correct-query": "SELECT\n  Name,\n  Region,\n  Population,\n  SUM(Population) OVER (PARTITION BY Region) AS RegionTotal\nFROM Countries",
+            "verify-query": "SELECT Name, Region, Population, SUM(Population) OVER (PARTITION BY Region) AS RegionTotal FROM Countries",
+            "order-sensitive": false,
+            "exercise-order": 2,
+            "initial-query": "SELECT * FROM Countries",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        },
+        {
+            "task-id": 14.3,
+            "description": "Find the average population per region for each country",
+            "correct-query": "SELECT\n  Name,\n  Region,\n  Population,\n  AVG(Population) OVER (PARTITION BY Region) AS RegionAvg\nFROM Countries",
+            "verify-query": "SELECT Name, Region, Population, AVG(Population) OVER (PARTITION BY Region) AS RegionAvg FROM Countries",
+            "order-sensitive": false,
+            "exercise-order": 3,
+            "initial-query": "SELECT * FROM Countries",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        },
+        {
+            "task-id": 14.4,
+            "description": "Determine, for each country, the maximum population within its region",
+            "correct-query": "SELECT\n  Name,\n  Region,\n  Population,\n  MAX(Population) OVER (PARTITION BY Region) AS RegionMax\nFROM Countries",
+            "verify-query": "SELECT Name, Region, Population, MAX(Population) OVER (PARTITION BY Region) AS RegionMax FROM Countries",
+            "order-sensitive": false,
+            "exercise-order": 4,
+            "initial-query": "SELECT * FROM Countries",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        }
+    ]
+}

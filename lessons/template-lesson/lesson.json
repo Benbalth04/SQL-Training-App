@@ -1,0 +1,27 @@
+{
+    "lesson-id": "template-lesson",
+    "title": "",
+    "subtitle": "",
+    "lesson-order": 1,
+    "database-tables": [
+        {
+            "name": "Countries",
+            "priority": 1
+        }
+    ],
+    "exercise-tasks": [
+        {
+            "task-id": 1.1,
+            "description": "Find the name of each country",
+            "correct-query": "SELECT Name FROM Countries",
+            "verify-query": "SELECT Name FROM Countries",
+            "order-sensitive": false,
+            "exercise-order": 1,
+            "initial-query": "SELECT * FROM Countries",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        }
+    ]
+}

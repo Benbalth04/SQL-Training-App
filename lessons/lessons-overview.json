@@ -1,0 +1,164 @@
+{
+    "lessons": [
+        {
+            "lesson-id": "lesson-1-basic-select",
+            "title": "Lesson 1",
+            "subtitle": "SELECT queries 101",
+            "lesson-order": 1,
+            "key-topics": "Selecting a subset of columns from a table",
+            "difficulty": "Beginner"
+        },
+        {
+            "lesson-id": "lesson-2-queries-with-constraints-pt1",
+            "title": "Lesson 2",
+            "subtitle": "Queries with constraints (Pt. 1)",
+            "lesson-order": 2,
+            "key-topics": "Using basic filtering commands such as WHERE, AND, IN, NOT, BETWEEN",
+            "difficulty": "Beginner"
+        },
+        {
+            "lesson-id": "lesson-3-queries-with-contraints-pt2",
+            "title": "Lesson 3",
+            "subtitle": "Queries with constraints (Pt. 2)",
+            "lesson-order": 3,
+            "key-topics": "Using LIKE, IS NULL, IS NOT NULL, DISTINCT",
+            "difficulty": "Beginner"
+        },
+        {
+            "lesson-id": "lesson-4-ordering-limiting",
+            "title": "Lesson 4",
+            "subtitle": "Ordering and Limiting",
+            "lesson-order": 4,
+            "key-topics": "ORDER BY, sorting direction, limiting rows",
+            "difficulty": "Beginner"
+        },
+        {
+            "lesson-id": "lesson-5-basic-aggregations",
+            "title": "Lesson 5",
+            "subtitle": "Basic Aggregations",
+            "lesson-order": 5,
+            "key-topics": "COUNT, SUM, AVG, MIN, MAX",
+            "difficulty": "Beginner"
+        },
+        {
+            "lesson-id": "lesson-6-group-by",
+            "title": "Lesson 6",
+            "subtitle": "GROUP BY Aggregations",
+            "lesson-order": 6,
+            "key-topics": "Group-level summaries, multi-column grouping, HAVING filters",
+            "difficulty": "Intermediate"
+        },
+        {
+            "lesson-id": "lesson-7-basic-joins",
+            "title": "Lesson 7",
+            "subtitle": "Basic Joins",
+            "lesson-order": 7,
+            "key-topics": "INNER JOIN, joining on keys, aliasing",
+            "difficulty": "Intermediate"
+        },
+        {
+            "lesson-id": "lesson-8-left-joins",
+            "title": "Lesson 8",
+            "subtitle": "Left Joins and Missing Data",
+            "lesson-order": 8,
+            "key-topics": "LEFT JOIN, handling NULL from unmatched rows",
+            "difficulty": "Intermediate"
+        },
+        {
+            "lesson-id": "lesson-9-multi-joins",
+            "title": "Lesson 9",
+            "subtitle": "Multi-Table Joins",
+            "lesson-order": 9,
+            "key-topics": "Chaining multiple joins, join ordering",
+            "difficulty": "Intermediate"
+        },
+        {
+            "lesson-id": "lesson-10-complex-joins",
+            "title": "Lesson 10",
+            "subtitle": "Complex Join Logic",
+            "lesson-order": 10,
+            "key-topics": "Self joins, multi-condition joins, non-equijoins",
+            "difficulty": "Intermediate"
+        },
+        {
+            "lesson-id": "lesson-11-subqueries-and-nesting",
+            "title": "Lesson 11",
+            "subtitle": "Subqueries and Nested SELECT",
+            "lesson-order": 11,
+            "key-topics": "Scalar subqueries, table subqueries, correlated subqueries",
+            "difficulty": "Advanced"
+        },
+        {
+            "lesson-id": "lesson-12-cte-basics",
+            "title": "Lesson 12",
+            "subtitle": "Common Table Expressions (CTEs)",
+            "lesson-order": 12,
+            "key-topics": "WITH clause basics, readable query structuring",
+            "difficulty": "Advanced"
+        },
+        {
+            "lesson-id": "lesson-13-aggregation-logic-advanced",
+            "title": "Lesson 13",
+            "subtitle": "Advanced Aggregation Logic",
+            "lesson-order": 13,
+            "key-topics": "Conditional aggregation with CASE, multi-level aggregations",
+            "difficulty": "Advanced"
+        },
+        {
+            "lesson-id": "lesson-14-window-functions-basics",
+            "title": "Lesson 14",
+            "subtitle": "Intro to Window Functions",
+            "lesson-order": 14,
+            "key-topics": "OVER(), PARTITION BY, ORDER BY in window context",
+            "difficulty": "Advanced"
+        },
+        {
+            "lesson-id": "lesson-15-window-ranking",
+            "title": "Lesson 15",
+            "subtitle": "Ranking Functions",
+            "lesson-order": 15,
+            "key-topics": "ROW_NUMBER, RANK, DENSE_RANK, NTILE",
+            "difficulty": "Advanced"
+        },
+        {
+            "lesson-id": "lesson-17-nested-analytical-queries",
+            "title": "Lesson 17",
+            "subtitle": "Nested Analytical Queries",
+            "lesson-order": 17,
+            "key-topics": "Combining multiple window functions + CTEs",
+            "difficulty": "Advanced"
+        },
+        {
+            "lesson-id": "lesson-18-recursive-ctes",
+            "title": "Lesson 18",
+            "subtitle": "Recursive CTEs",
+            "lesson-order": 18,
+            "key-topics": "Recursive CTEs",
+            "difficulty": "Advanced"
+        },
+        {
+            "lesson-id": "lesson-19-creating-basic-tables",
+            "title": "Lesson 19",
+            "subtitle": "Creating Basic Tables",
+            "lesson-order": 19,
+            "key-topics": "Basic table definitions",
+            "difficulty": "Beginner"
+        },
+        {
+            "lesson-id": "lesson-20-creating-multiple-tables",
+            "title": "Lesson 20",
+            "subtitle": "Creating Multiple Tables",
+            "lesson-order": 20,
+            "key-topics": "FOREIGN KEYS, CONTRAINTS",
+            "difficulty": "Intermediate"
+        },
+        {
+            "lesson-id": "lesson-21-dml",
+            "title": "Lesson 21",
+            "subtitle": "Changing Data in Tables",
+            "lesson-order": 21,
+            "key-topics": "Basic INSERT, DELETE, DROP, UPDATE",
+            "difficulty": "Beginner"
+        }
+    ]
+}

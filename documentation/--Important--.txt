@@ -1,0 +1,1 @@
+To view the markdown documentation correctly in VS Code, open the file and press Ctrl+Shift+V

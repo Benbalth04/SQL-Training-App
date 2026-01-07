@@ -1,0 +1,83 @@
+{
+    "lesson-id": "lesson-8-left-joins",
+    "title": "Lesson 8",
+    "subtitle": "Left Joins and Missing Data",
+    "lesson-order": 8,
+    "database-tables": [
+        {
+            "name": "Countries",
+            "priority": 1
+        },
+        {
+            "name": "Cities",
+            "priority": 2
+        }
+    ],
+    "exercise-tasks": [
+        {
+            "task-id": 8.1,
+            "description": "List all countries with their cities using a LEFT JOIN",
+            "correct-query": "SELECT\n  Countries.Name AS CountryName,\n  Cities.Name AS CityName\nFROM Countries\nLEFT JOIN Cities ON Countries.CountryID = Cities.CountryID",
+            "verify-query": "SELECT Countries.Name AS CountryName, Cities.Name AS CityName FROM Countries LEFT JOIN Cities ON Countries.CountryID = Cities.CountryID",
+            "order-sensitive": false,
+            "exercise-order": 1,
+            "initial-query": "SELECT * FROM Countries",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        },
+        {
+            "task-id": 8.2,
+            "description": "Show countries and cities, including countries with no cities",
+            "correct-query": "SELECT\n  Countries.Name AS CountryName,\n  Cities.Name AS CityName\nFROM Countries\nLEFT JOIN Cities ON Countries.CountryID = Cities.CountryID",
+            "verify-query": "SELECT Countries.Name AS CountryName, Cities.Name AS CityName FROM Countries LEFT JOIN Cities ON Countries.CountryID = Cities.CountryID",
+            "order-sensitive": false,
+            "exercise-order": 2,
+            "initial-query": "SELECT * FROM Countries",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        },
+        {
+            "task-id": 8.3,
+            "description": "Find countries that do not have any cities",
+            "correct-query": "SELECT Countries.Name AS CountryName\nFROM Countries\nLEFT JOIN Cities ON Countries.CountryID = Cities.CountryID\nWHERE Cities.Name IS NULL",
+            "verify-query": "SELECT Countries.Name AS CountryName FROM Countries LEFT JOIN Cities ON Countries.CountryID = Cities.CountryID WHERE Cities.Name IS NULL",
+            "order-sensitive": false,
+            "exercise-order": 3,
+            "initial-query": "SELECT * FROM Countries",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        },
+        {
+            "task-id": 8.4,
+            "description": "Count the number of cities per country, including countries with zero cities",
+            "correct-query": "SELECT\n  Countries.Name AS CountryName,\n  COUNT(Cities.CityID) AS NumCities\nFROM Countries\nLEFT JOIN Cities ON Countries.CountryID = Cities.CountryID\nGROUP BY Countries.Name",
+            "verify-query": "SELECT Countries.Name AS CountryName, COUNT(Cities.CityID) AS NumCities FROM Countries LEFT JOIN Cities ON Countries.CountryID = Cities.CountryID GROUP BY Countries.Name",
+            "order-sensitive": false,
+            "exercise-order": 4,
+            "initial-query": "SELECT * FROM Countries",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        },
+        {
+            "task-id": 8.5,
+            "description": "List all countries and cities using table aliases, showing NULL for missing cities",
+            "correct-query": "SELECT\n  co.Name AS CountryName,\n  c.Name AS CityName\nFROM Countries co\nLEFT JOIN Cities c ON co.CountryID = c.CountryID",
+            "verify-query": "SELECT co.Name AS CountryName, c.Name AS CityName FROM Countries co LEFT JOIN Cities c ON co.CountryID = c.CountryID",
+            "order-sensitive": false,
+            "exercise-order": 5,
+            "initial-query": "SELECT * FROM Countries",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        }
+    ]
+}

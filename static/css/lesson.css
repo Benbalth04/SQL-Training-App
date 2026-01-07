@@ -1,0 +1,704 @@
+/* =========================================================
+   GLOBAL VARIABLES
+========================================================= */
+:root {
+    --font-main: 'Myriad Pro','Segoe UI','Calibri','Trebuchet MS',Helvetica,Verdana,sans-serif;
+    --font-heading: 'Ruda','Segoe UI','Calibri','Trebuchet MS',Helvetica,Verdana,sans-serif;
+
+    --color-primary: #86BC25;
+    --color-bg-light: #f6f5f1;
+    --color-bg-page: #ede8e6;
+    --color-text: #4a535f;
+    --color-text-dark: #111;
+    --color-border: #eae9de;
+
+    --shadow-light: 0 0 30px rgba(0,0,0,0.1);
+    --shadow-heavy: 0 0 30px rgba(0,0,0,0.3);
+
+    --radius-sm: 4px;
+    --radius-md: 8px;
+}
+
+/* =========================================================
+   BASIC ELEMENTS
+========================================================= */
+body {
+    font-family: var(--font-main);
+    font-size: 15px;
+    background: var(--color-bg-page);
+    overflow-x: hidden;
+}
+
+a { color: var(--color-primary); }
+
+code {
+    white-space: pre;
+    font-size: 1em;
+}
+
+.uline { text-decoration: underline; }
+.ralign { text-align: right; }
+.ignore_lr_padding { padding-left: 0; padding-right: 0; }
+
+/* Hide utilities */
+@media(max-width: 460px) { .hide-max-xs { display:none; } }
+@media(max-width: 767px) { .hide-max-sm { display:none; } }
+@media(max-width: 991px) { .hide-max-md { display:none; } }
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+.btn-success,
+.btn-success:hover,
+.menu_button,
+.menu_button:hover {
+    transition: background-color 225ms, color 225ms;
+}
+
+.menu_button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+.menu_button i {
+    font-size: 1.5em;
+    color: #333;
+}
+
+/* =========================================================
+   SYNTAX HIGHLIGHTING (hljs)
+========================================================= */
+.hljs {
+    font-family: monospace !important;
+    padding: .5em 0 0 0;
+    background: transparent;
+}
+
+.hljs-keyword { color: #5d5c58 !important; }
+.hljs-variable { color: #4380d9 !important; }
+.hljs-param-variable { font-style: italic; color: #cb6969 !important; }
+.hljs-comment { color: #2fb400 !important; }
+.hljs-string { color: #333 !important; }
+.faux-keyword { font-weight: bold; }
+
+/* =========================================================
+   MAIN CONTENT WRAPPER
+========================================================= */
+.content {
+    width: 70%;
+    margin: 0 auto;
+    padding-bottom: 1.5em;
+    background: var(--color-bg-light);
+    border-top: 5px solid var(--color-primary);
+    border-radius: .15em;
+    box-shadow: var(--shadow-light);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+@media(min-width: 768px) {
+    .content { margin-top: 1.6em; margin-bottom: 1em; }
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+.header {
+    position: relative;
+    height: 5.25em;
+    line-height: 5.25em;
+    margin: 0 1em 0 1.5em;
+}
+
+.header a,
+.header div {
+    display: inline-block;
+    vertical-align: middle;
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+.site_logo img {
+    display: block;
+    max-height: 100%;
+}
+
+.site_name {
+    position: relative;
+    top: .125em;
+    font: bold 1.625em var(--font-heading);
+    line-height: .875em;
+}
+.site_name .highlight { color: var(--color-primary); }
+.site_name .desc { font-size: .675em; color: var(--color-text); }
+
+@media(max-width: 460px) { .site_name { font-size: 1.5em; } }
+@media(max-width: 991px) { .site_name { top: 0; } }
+
+/* Header menu buttons */
+.menu_buttons { float: right; margin-right: .5em; }
+.menu_button { padding: 1.5em .5em; font: 1.125em var(--font-heading); }
+.menu_button:hover { color: var(--color-primary); }
+
+/* =========================================================
+   DROPDOWN MENU
+========================================================= */
+.menu_container {
+    display: none;
+    position: absolute;
+    right: 0;
+    padding: .75em 1em;
+    background: #f9f8f4;
+    border-radius: 0 0 .25em .25em;
+    box-shadow: var(--shadow-heavy);
+    z-index: 99999;
+}
+
+@media(max-width: 991px) { .menu_container { width: 100%; } }
+@media(min-width: 768px) { .menu_container { width: 27em; margin-top: -.5em; } }
+
+.menu {
+    line-height: normal;
+    padding: 0;        
+    margin: 0;
+    display: block;
+}
+
+.menu a {
+    display: block;
+    padding: .35em 1rem;        
+    font-size: 1.05em;
+    line-height: 1.2;      
+    color: var(--color-text);
+    text-decoration: none;
+    margin: 0;
+}
+
+.menu a:hover,
+.menu a:focus {
+    background: #efece6;
+    cursor: pointer;
+}
+
+/* Completed state */
+.menu a.completed {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+/* =========================================================
+   LESSON CONTENT
+========================================================= */
+.lesson .title {
+    padding: .5em 26px;
+    font: bold 1.6em var(--font-heading);
+    color: #394148;
+}
+
+.lesson .body {
+    padding: 0 26px;
+    font-size: 1.15em;
+    color: #000;
+}
+
+.lesson .body h1,
+.lesson .body h2 {
+    margin-top: 1.5em;
+    padding: .25em 0 .25em .5em;
+    font-family: var(--font-heading);
+    border-bottom: .1875em solid var(--color-border);
+}
+
+.lesson .body code {
+    font-size: .9375em;
+    font-weight: bold;
+    background: none;
+    color: var(--color-text-dark);
+    overflow-x: auto;
+}
+
+/* Definition + DYK boxes */
+.definition,
+.dyk {
+    margin: 1em;
+    padding: .75em;
+    background: #eae8de;
+    border-radius: .25em;
+}
+.definition code,
+.dyk p { padding-top: .5em; }
+
+pre code.language-sql { 
+    background: var(--color-border) !important;
+    display: block; padding: 1em;
+    border-radius: 6px; 
+}
+
+.markdown-table {
+    font-family: var(--font-main);
+    width: 60%;
+    text-align: center;
+    margin: 1rem auto 0 auto; 
+    justify-content: center;  
+    align-items: start;
+    border: 3px solid var(--color-bg-page);
+}
+
+/* Header */
+.markdown-table thead tr {
+    background: #e2e0d5;
+    border-bottom: 1px solid #dad9ce;
+    font-size: medium;
+}
+
+.markdown-table th {
+    padding: 0.5rem;
+    font-weight: bold;
+    text-transform: capitalize;
+    color: #444;
+}
+
+/* Body */
+.markdown-table td {
+    padding: 0.5rem;
+    font-size: medium;
+    border: var(--color-border);
+}
+
+/* Striping */
+.markdown-table tbody tr:nth-child(odd) {
+    background: var(--color-bg-light);
+}
+
+.markdown-table tbody tr:nth-child(even) {
+    background: white;
+}
+
+
+/* =========================================================
+   DATATABLES
+========================================================= */
+.table-preview-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1rem;
+    width: 80%;               
+    max-width: 1200px;  
+    margin: 1rem auto 0 auto; 
+    justify-content: center;  
+    align-items: start;
+}
+
+/* The container for EACH individual table */
+.table-container {
+    display: flex;
+    flex-direction: column;
+}
+
+/* The table name header */
+.table-container .table-title {
+    font-family: var(--font-main);
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+/* Base table styling */
+.datatable table {
+    font-family: var(--font-main);
+    border-top: 0;
+    width: 100%;
+    overflow: scroll;
+    height: 100px;
+    text-align: center;
+}
+
+/* Column headers */
+.datatable table thead tr {
+    background: #e2e0d5;
+    border-bottom: 1px solid #dad9ce;
+    text-align: center;
+}
+
+.datatable table thead th {
+    font-family: var(--font-main);
+    height: 1.75em;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* Body rows */
+.datatable table tbody tr td {
+    font-family: var(--font-main);
+    height: 1.75rem;
+    text-align: center;            
+    vertical-align: middle;       
+    border: var(--color-border);
+}
+
+/* Stripe effect */
+.datatable table tbody tr:nth-child(even) {
+    background: white;
+}
+
+.datatable table tbody tr:nth-child(odd) {
+    background: var(--color-bg-light); 
+}
+
+/* Column name styling */
+.datatable table .column_name {
+    font-family: var(--font-main);
+    text-transform: capitalize;
+    color: #444;
+    text-align: center;          
+    vertical-align: middle;
+}
+
+/* =========================================================
+   EXERCISE AREA (NEW FLEX LAYOUT)
+========================================================= */
+.exercise-container {
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 500px;              /* Default height */
+    transition: height 0.25s ease;
+    position: relative;
+}
+
+/* Large mode height */
+.exercise-container.large-editor {
+    height: 700px;  
+}
+
+/* LEFT PANE */
+.exercise-left {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+}
+
+.results-table-preview,
+.editor-container {
+    min-height: 0; 
+}
+
+.results-table-preview {
+    flex: 2;
+    overflow: auto;
+    padding: 0.5rem;
+}
+
+
+.editor-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;   
+    overflow: visible;    
+}
+
+/* ---------- LARGE MODE: FLEX RESIZING ---------- */
+/* Editor takes more space */
+.exercise-container.large-editor .editor-container {
+    flex: 2;
+}
+
+/* Table takes less */
+.exercise-container.large-editor .results-table-preview {
+    flex: 1;
+    max-height: none;
+}
+
+/* ---------- NORMAL MODE: EXPLICIT RESET ---------- */
+
+.exercise-container:not(.large-editor) .editor-container {
+    flex: 1;
+}
+
+.exercise-container:not(.large-editor) .results-table-preview {
+    flex: 2;
+    max-height: auto; 
+}
+
+/* Wrapper around the Monaco instance */
+#editor {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* Monaco itself must stretch inside the editor container */
+.editor .monaco-editor,
+.editor .monaco-editor-container,
+.editor .monaco-scrollable-element {
+    width: 100% !important;
+    height: 100% !important;
+    position: absolute !important;
+    top: 0;
+    left: 0;
+}
+
+
+.editor-container .monaco-editor {
+    height: 100% !important;
+}
+
+.btn-run {
+    background: var(--color-green);
+    color: var(--color-primary);
+    font-weight: 600;
+    border: none;
+    padding: 0.25rem 0.75rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn-reset {
+    background: var(--color-green);
+    color: var(--color-text);
+    font-weight: 600;
+    border: none;
+    padding: 0.25rem 0.75rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn-run:hover {
+    background: var(--color-green-dark);
+}
+
+.editor-controls {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+#sql-popup {
+    position: absolute;
+    bottom: 12px;      
+    left: 12px;
+    background: #d62828; 
+    color: white;
+    z-index: 50;        
+    max-width: 70%;
+    pointer-events: none; 
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    display: none;     
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    padding: 6px 10px; 
+    font-size: 0.85rem; 
+}
+
+#sql-popup.show {
+    display: block;
+    opacity: 1;
+}
+
+#sql-popup.success {
+    background: #2b9348;
+    border-color: #1a7d3a;
+}
+
+
+.hidden-table-preview {
+    display: none !important;
+}
+
+/* ================================
+   Answer Popup
+================================ */
+.answer-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 200;    
+}
+
+.answer-overlay.active {
+    display: block;
+}
+
+.answer-popup {
+    position: absolute;      
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    width: clamp(300px, 50%, 700px);
+    background: white;
+    border-radius: 10px;
+    padding: 1rem 1rem 1rem 1rem; 
+    display: none;
+    z-index: 250;            
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    width: 40%
+}
+.answer-popup.active {
+    display: block;
+}
+
+.answer-popup::before {
+    content: "";
+    width: 100%;
+    height: 8px;
+    display: block;
+    background: transparent;   
+}
+
+/* Success stripe */
+.answer-popup.success::before {
+    background: var(--color-primary);
+    height: 5px;
+}
+
+/* Error stripe */
+.answer-popup.error::before {
+    height: 5px;
+    background: #d9534f; /* Red */
+}
+
+.answer-popup-text {
+    padding: 1.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #333;
+    text-align: center;
+    white-space: pre-wrap;
+}
+
+/* SQL answer block inside popup */
+.answer-popup-sql  {
+    margin: 0 1.25rem 1.25rem 1.25rem;
+    background: var(--color-border) !important;
+    display: block;
+    padding: 1em;
+    border-radius: 6px;
+    font-family: "JetBrains Mono", "Consolas", monospace;
+    font-size: 0.9rem;
+    white-space: pre-wrap;
+    overflow-x: auto;
+}
+
+.answer-popup-button {
+    margin: 0.5rem auto 1.2rem auto;
+
+    padding: 0.6rem 1.4rem;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    color: white;
+
+    /* Transitional default */
+    background: #aaa;
+    transition: background 0.2s ease;
+    text-align: center;
+    width: 30%;
+}
+
+/* Success button color */
+.answer-popup.success .answer-popup-button {
+    background: var(--color-primary);
+}
+
+/* Error button color */
+.answer-popup.error .answer-popup-button {
+    background: #d9534f;
+}
+
+/* ----------------------------------
+   RIGHT SIDE: tasks list (25% width)
+   ---------------------------------- *
+*/
+.tasks-container {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Tasks scroll area */
+.tasks-list {
+    flex: 1;
+    overflow-y: auto;
+}
+
+/* Base task item style */ 
+.task-item { 
+    display: flex; 
+    justify-content: space-between;
+    align-items: center; 
+    padding: 10px 12px; 
+    background: #ffffff; 
+    cursor: pointer;
+    transition: background 0.2s, 
+    border-color 0.2s; font-size: 14px;
+    min-height: 40px;
+ } 
+ 
+ /* Completed state */ 
+ .task-completed { 
+    color: #9c9c9c;
+ }
+
+.task-item.completed {
+     opacity: 0.5; 
+}
+ 
+ /* Tick icon */ 
+.task-tick { 
+    margin-left: 10px;
+    color: #4caf50; 
+    font-weight: bold; 
+}
+
+/* Selected task */ 
+.task-selected { 
+    border-color: var(--color-primary);
+    background: #97c163; 
+}
+
+/* Bottom "Next Lesson" button */
+.next-lesson-btn {
+    height: 3rem;
+    background: var(--color-primary);
+    color: var(--color-text-dark);
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.next-lesson-btn.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    background-color: var(--color-bg-page);
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+.footer {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 1em 26px;
+    color: #747474;
+}
+@media(max-width: 991px) { .footer { text-align:center; padding-bottom:0; } }

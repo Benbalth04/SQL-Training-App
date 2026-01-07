@@ -1,0 +1,66 @@
+{
+    "lesson-id": "lesson-12-cte-basics",
+    "title": "Lesson 12",
+    "subtitle": "Common Table Expressions (CTEs)",
+    "lesson-order": 12,
+    "database-tables": [
+        {
+            "name": "Countries",
+            "priority": 1
+        }
+    ],
+    "exercise-tasks": [
+        {
+            "task-id": 12.1,
+            "description": "Create a CTE to calculate the average population of all countries",
+            "correct-query": "WITH AvgPopulation AS (\n  SELECT AVG(Population) AS AvgPop FROM Countries\n)\n\nSELECT * FROM AvgPopulation",
+            "verify-query": "WITH AvgPopulation AS (SELECT AVG(Population) AS AvgPop FROM Countries) SELECT * FROM AvgPopulation",
+            "order-sensitive": false,
+            "exercise-order": 1,
+            "initial-query": "SELECT * FROM Countries",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        },
+        {
+            "task-id": 12.2,
+            "description": "Use a CTE to list countries with a population above the average",
+            "correct-query": "WITH AvgPopulation AS (\n  SELECT AVG(Population) AS AvgPop FROM Countries\n)\n\nSELECT Name, Population\nFROM Countries, AvgPopulation\nWHERE Population > AvgPopulation.AvgPop",
+            "verify-query": "WITH AvgPopulation AS (SELECT AVG(Population) AS AvgPop FROM Countries) SELECT Name, Population FROM Countries, AvgPopulation WHERE Population > AvgPopulation.AvgPop",
+            "order-sensitive": false,
+            "exercise-order": 2,
+            "initial-query": "SELECT * FROM Countries",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        },
+        {
+            "task-id": 12.3,
+            "description": "Chain two CTEs: first calculate total population, then find countries with population above average",
+            "correct-query": "WITH TotalPopulation AS (\n  SELECT SUM(Population) AS TotalPop FROM Countries\n),\n\nAboveAverage AS (\n  SELECT Name, Population FROM Countries\n  WHERE Population > (\n    SELECT TotalPop/COUNT(*) FROM TotalPopulation\n  )\n)\n\nSELECT * FROM AboveAverage",
+            "verify-query": "WITH TotalPopulation AS (SELECT SUM(Population) AS TotalPop FROM Countries), AboveAverage AS (SELECT Name, Population FROM Countries WHERE Population > (SELECT TotalPop/COUNT(*) FROM TotalPopulation)) SELECT * FROM AboveAverage",
+            "order-sensitive": false,
+            "exercise-order": 3,
+            "initial-query": "SELECT * FROM Countries",
+            "large-query": true,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        },
+        {
+            "task-id": 12.4,
+            "description": "Create a CTE to list countries sorted by population and display only the top 3 most populous countries",
+            "correct-query": "WITH RankedCountries AS\n  (SELECT Name, Population FROM Countries\n   ORDER BY Population DESC\n )\n\nSELECT Name, Population FROM RankedCountries\nLIMIT 3",
+            "verify-query": "WITH RankedCountries AS(SELECT Name, Population FROM Countries ORDER BY Population DESC) SELECT Name, Population FROM RankedCountries LIMIT 3",
+            "order-sensitive": false,
+            "exercise-order": 4,
+            "initial-query": "SELECT * FROM Countries",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        }
+    ]
+}

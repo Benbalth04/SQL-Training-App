@@ -1,0 +1,66 @@
+{
+    "lesson-id": "lesson-15-window-ranking",
+    "title": "Lesson 15",
+    "subtitle": "Ranking Functions",
+    "lesson-order": 15,
+    "database-tables": [
+        {
+            "name": "Countries",
+            "priority": 1
+        }
+    ],
+    "exercise-tasks": [
+        {
+            "task-id": 15.1,
+            "description": "Assign a row number to each country ordered by population descending",
+            "correct-query": "SELECT\n  Name,\n  Population,\n  ROW_NUMBER() OVER (ORDER BY Population DESC) AS RowNum\nFROM Countries",
+            "verify-query": "SELECT Name, Population, ROW_NUMBER() OVER (ORDER BY Population DESC) AS RowNum FROM Countries",
+            "order-sensitive": false,
+            "exercise-order": 1,
+            "initial-query": "SELECT * FROM Countries",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        },
+        {
+            "task-id": 15.2,
+            "description": "Assign a rank to each country by population descending",
+            "correct-query": "SELECT\n  Name,\n  Population,\n  RANK() OVER (ORDER BY Population DESC) AS Rank\nFROM Countries",
+            "verify-query": "SELECT Name, Population, RANK() OVER (ORDER BY Population DESC) AS Rank FROM Countries",
+            "order-sensitive": false,
+            "exercise-order": 2,
+            "initial-query": "SELECT * FROM Countries",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        },
+        {
+            "task-id": 15.3,
+            "description": "Assign a dense rank to each country by population descending",
+            "correct-query": "SELECT\n  Name,\n  Population,\n  DENSE_RANK() OVER (ORDER BY Population DESC) AS DenseRank\nFROM Countries",
+            "verify-query": "SELECT Name, Population, DENSE_RANK() OVER (ORDER BY Population DESC) AS DenseRank FROM Countries",
+            "order-sensitive": false,
+            "exercise-order": 3,
+            "initial-query": "SELECT * FROM Countries",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        },
+        {
+            "task-id": 15.4,
+            "description": "Divide all countries into 3 tiers using NTILE based on population",
+            "correct-query": "SELECT\n  Name,\n  Population,\n  NTILE(3) OVER (ORDER BY Population DESC) AS PopulationTier\nFROM Countries",
+            "verify-query": "SELECT Name, Population, NTILE(3) OVER (ORDER BY Population DESC) AS PopulationTier FROM Countries",
+            "order-sensitive": false,
+            "exercise-order": 4,
+            "initial-query": "SELECT * FROM Countries",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        }
+    ]
+}

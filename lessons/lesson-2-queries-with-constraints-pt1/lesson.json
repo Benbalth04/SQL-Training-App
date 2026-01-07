@@ -1,0 +1,79 @@
+{
+    "lesson-id": "lesson-2-queries-with-constraints-pt1",
+    "title": "Lesson 2",
+    "subtitle": "Queries with constraints (Pt. 1)",
+    "lesson-order": 2,
+    "database-tables": [
+        {
+            "name": "Countries",
+            "priority": 1
+        }
+    ],
+    "exercise-tasks": [
+        {
+            "task-id": 2.1,
+            "description": "Find the name of all countries located in Oceania.",
+            "correct-query": "SELECT Name FROM Countries\nWHERE Region = 'Oceania';",
+            "verify-query": "SELECT Name FROM Countries\nWHERE Region = 'Oceania';",
+            "order-sensitive": false,
+            "exercise-order": 1,
+            "initial-query": "SELECT * FROM Countries;",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        },
+        {
+            "task-id": 2.2,
+            "description": "Find the name and population of countries with a population greater than 50 million.",
+            "correct-query": "SELECT Name, Population FROM Countries\nWHERE Population > 50000000;",
+            "verify-query": "SELECT Name, Population FROM Countries\nWHERE Population > 50000000;",
+            "order-sensitive": false,
+            "exercise-order": 2,
+            "initial-query": "SELECT * FROM Countries;",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        },
+        {
+            "task-id": 2.3,
+            "description": "Find the name and region of countries in either Asia or Europe using IN.",
+            "correct-query": "SELECT Name, region FROM Countries\nWHERE Region IN ('Asia', 'Europe');",
+            "verify-query": "SELECT Name, region FROM Countries\nWHERE Region IN ('Asia', 'Europe');",
+            "order-sensitive": false,
+            "exercise-order": 3,
+            "initial-query": "SELECT * FROM Countries;",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        },
+        {
+            "task-id": 2.4,
+            "description": "Find all details about countries that are not in North America.",
+            "correct-query": "SELECT * FROM Countries\nWHERE Region <> 'North America';",
+            "verify-query": "SELECT * FROM Countries\nWHERE Region <> 'North America';",
+            "order-sensitive": false,
+            "exercise-order": 4,
+            "initial-query": "SELECT * FROM Countries;",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        },
+        {
+            "task-id": 2.5,
+            "description": "Find all details about countries with a population between 10 million and 100 million (inclusive).",
+            "correct-query": "SELECT * FROM Countries\nWHERE Population BETWEEN 10000000 AND 100000000;",
+            "verify-query": "SELECT * FROM Countries\nWHERE Population BETWEEN 10000000 AND 100000000;",
+            "order-sensitive": false,
+            "exercise-order": 5,
+            "initial-query": "SELECT * FROM Countries;",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        }
+    ]
+}

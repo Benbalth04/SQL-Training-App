@@ -1,0 +1,87 @@
+{
+    "lesson-id": "lesson-11-subqueries-and-nesting",
+    "title": "Lesson 11",
+    "subtitle": "Subqueries and Nested SELECT",
+    "lesson-order": 11,
+    "database-tables": [
+        {
+            "name": "Countries",
+            "priority": 1
+        },
+        {
+            "name": "Cities",
+            "priority": 2
+        },
+        {
+            "name": "People",
+            "priority": 3
+        }
+    ],
+    "exercise-tasks": [
+        {
+            "task-id": 11.1,
+            "description": "Find the population of Japan using a scalar subquery",
+            "correct-query": "SELECT\n  (SELECT Population FROM Countries WHERE Name = 'Japan')\nAS JapanPopulation",
+            "verify-query": "SELECT (SELECT Population FROM Countries WHERE Name = 'Japan') AS JapanPopulation",
+            "order-sensitive": false,
+            "exercise-order": 1,
+            "initial-query": "SELECT * FROM Countries",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        },
+        {
+            "task-id": 11.2,
+            "description": "List all people living in countries in Asia using a table subquery",
+            "correct-query": "SELECT Name, Age\nFROM People\nWHERE CountryID IN\n(SELECT CountryID FROM Countries WHERE Region = 'Asia')",
+            "verify-query": "SELECT Name, Age FROM People WHERE CountryID IN (SELECT CountryID FROM Countries WHERE Region = 'Asia')",
+            "order-sensitive": false,
+            "exercise-order": 2,
+            "initial-query": "SELECT * FROM People",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        },
+        {
+            "task-id": 11.3,
+            "description": "Find countries where the population is higher than the average population of all countries",
+            "correct-query": "SELECT Name, Population\nFROM Countries\nWHERE Population > (SELECT AVG(Population) FROM Countries)",
+            "verify-query": "SELECT Name, Population FROM Countries WHERE Population > (SELECT AVG(Population) FROM Countries)",
+            "order-sensitive": false,
+            "exercise-order": 3,
+            "initial-query": "SELECT * FROM Countries",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        },
+        {
+            "task-id": 11.4,
+            "description": "Retrieve names of people living in the most populous city of each country using a correlated subquery",
+            "correct-query": "SELECT\n  p.Name,\n  c.Name AS CityName\nFROM People p\nJOIN Cities c ON p.CityID = c.CityID\nWHERE c.Population = (\n  SELECT MAX(Population) FROM Cities\n  WHERE CountryID = c.CountryID\n)",
+            "verify-query": "SELECT p.Name, c.Name AS CityName FROM People p JOIN Cities c ON p.CityID = c.CityID WHERE c.Population = (SELECT MAX(Population) FROM Cities WHERE CountryID = c.CountryID)",
+            "order-sensitive": false,
+            "exercise-order": 4,
+            "initial-query": "SELECT * FROM People",
+            "large-query": true,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        },
+        {
+            "task-id": 11.5,
+            "description": "List countries with fewer people than the country containing 'New York'",
+            "correct-query": "SELECT\n  Name,\n  Population\nFROM Countries\nWHERE Population < (\n  SELECT Population FROM Countries\n  WHERE CountryID = (\n    SELECT CountryID FROM Cities\n    WHERE Name = 'New York'\n  )\n)",
+            "verify-query": "SELECT Name, Population FROM Countries WHERE Population < (SELECT Population FROM Countries WHERE CountryID = (SELECT CountryID FROM Cities WHERE Name = 'New York'))",
+            "order-sensitive": false,
+            "exercise-order": 5,
+            "initial-query": "SELECT * FROM Countries",
+            "large-query": true,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        }
+    ]
+}

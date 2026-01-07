@@ -1,0 +1,88 @@
+{
+    "lesson-id": "lesson-10-complex-joins",
+    "title": "Lesson 10",
+    "subtitle": "Complex Join Logic",
+    "lesson-order": 10,
+    "key-topics": "Self joins, multi-condition joins, non-equijoins",
+    "database-tables": [
+        {
+            "name": "Countries",
+            "priority": 1
+        },
+        {
+            "name": "Cities",
+            "priority": 2
+        },
+        {
+            "name": "People",
+            "priority": 3
+        }
+    ],
+    "exercise-tasks": [
+        {
+            "task-id": 10.1,
+            "description": "List each person and their manager using a self join on the People table.",
+            "correct-query": "SELECT\n  p.Name AS Person,\n  m.Name AS Manager\nFROM People\nLEFT JOIN People m ON p.ManagerID = m.PersonID",
+            "verify-query": "SELECT p.Name AS Person, m.Name AS Manager FROM People p LEFT JOIN People m ON p.ManagerID = m.PersonID",
+            "order-sensitive": false,
+            "exercise-order": 1,
+            "initial-query": "SELECT * FROM People",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        },
+        {
+            "task-id": 10.2,
+            "description": "Join Cities and Countries using two conditions: matching CountryID and matching Region.",
+            "correct-query": "SELECT * FROM Cities c\nJOIN Countries co ON c.CountryID = co.CountryID\n  AND c.Region = co.Region",
+            "verify-query": "SELECT * FROM Cities c JOIN Countries co ON c.CountryID = co.CountryID AND c.Region = co.Region",
+            "order-sensitive": false,
+            "exercise-order": 2,
+            "initial-query": "SELECT * FROM Cities",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        },
+        {
+            "task-id": 10.3,
+            "description": "Perform a non-equijoin matching People.Age to a range defined by Countries (MinAge to MaxAge).",
+            "correct-query": "SELECT\n  p.Name,\n  c.CountryName\nFROM People p\nJOIN Countries c ON p.Age BETWEEN c.MinAge AND c.MaxAge",
+            "verify-query": "SELECT p.Name, c.CountryName FROM People p JOIN Countries c ON p.Age BETWEEN c.MinAge AND c.MaxAge",
+            "order-sensitive": false,
+            "exercise-order": 3,
+            "initial-query": "SELECT * FROM People",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        },
+        {
+            "task-id": 10.4,
+            "description": "Self-join the Cities table to find pairs of cities within the same country.",
+            "correct-query": "SELECT\n  c1.CityName AS CityA,\n  c2.CityName AS CityB\nFROM Cities c1\nJOIN Cities c2 ON c1.CountryID = c2.CountryID\n  AND c1.CityID <> c2.CityID",
+            "verify-query": "SELECT c1.CityName AS CityA, c2.CityName AS CityB FROM Cities c1 JOIN Cities c2 ON c1.CountryID = c2.CountryID AND c1.CityID <> c2.CityID",
+            "order-sensitive": false,
+            "exercise-order": 4,
+            "initial-query": "SELECT * FROM Cities",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        },
+        {
+            "task-id": 10.5,
+            "description": "Join Countries with Cities and People and filter to show people living in cities with a population strictly greater than 8,400,000",
+            "correct-query": "SELECT\n  p.Name,\n  c.CityName,\n  co.CountryName\nFROM People p\nJOIN Cities c ON p.CityID = c.CityID\nJOIN Countries co ON c.CountryID = co.CountryID\nWHERE c.population > 8400000",
+            "verify-query": "SELECT p.Name, c.CityName, co.CountryName FROM People p JOIN Cities c ON p.CityID = c.CityID JOIN Countries co ON c.CountryID = co.CountryID WHERE c.population > 8400000",
+            "order-sensitive": false,
+            "exercise-order": 5,
+            "initial-query": "SELECT * FROM People",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        }
+    ]
+}

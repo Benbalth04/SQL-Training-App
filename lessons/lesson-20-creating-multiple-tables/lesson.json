@@ -1,0 +1,23 @@
+{
+    "lesson-id": "lesson-20-creating-multiple-tables",
+    "title": "Lesson 20",
+    "subtitle": "Creating Multiple Tables",
+    "lesson-order": 20,
+    "database-tables": [],
+    "exercise-tasks": [
+        {
+            "task-id": 20.1,
+            "description": "Create a States table with StateID (Auto-incrementing INTEGER) as primary key and CountryID (TEXT NOT NULL) as a foreign key referencing the Country ID field in the Countries Table",
+            "correct-query": "CREATE TABLE States (\n  StateID INTEGER PRIMARY KEY AUTOINCREMENT,\n  CountryID TEXT NOT NULL, FOREIGN KEY (CountryID) REFERENCES Countries(CountryID)\n);",
+            "verify-query": "CREATE TABLE States (StateID INTEGER PRIMARY KEY AUTOINCREMENT, CountryID TEXT NOT NULL, FOREIGN KEY (CountryID) REFERENCES Countries(CountryID));",
+            "expected-table-name": "States",
+            "order-sensitive": false,
+            "exercise-order": 1,
+            "initial-query": "",
+            "large-query": true,
+            "allow-dml": false,
+            "create-tables": true,
+            "preview-allowed": false
+        }
+    ]
+}

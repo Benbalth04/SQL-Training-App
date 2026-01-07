@@ -1,0 +1,70 @@
+{
+    "lesson-id": "lesson-13-aggregation-logic-advanced",
+    "title": "Lesson 13",
+    "subtitle": "Advanced Aggregation Logic",
+    "lesson-order": 13,
+    "database-tables": [
+        {
+            "name": "Countries",
+            "priority": 1
+        },
+        {
+            "name": "Cities",
+            "priority": 2
+        }
+    ],
+    "exercise-tasks": [
+        {
+            "task-id": 13.1,
+            "description": "Count the number of countries with a population over 100 million using a conditional aggregate",
+            "correct-query": "SELECT COUNT(CASE WHEN Population > 100000000 THEN 1 END) AS LargeCountries\nFROM Countries",
+            "verify-query": "SELECT COUNT(CASE WHEN Population > 100000000 THEN 1 END) AS LargeCountries FROM Countries",
+            "order-sensitive": false,
+            "exercise-order": 1,
+            "initial-query": "SELECT * FROM Countries",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        },
+        {
+            "task-id": 13.2,
+            "description": "Calculate total and average population per region",
+            "correct-query": "SELECT\n  Region,\n  SUM(Population) AS TotalPopulation,\n  AVG(Population) AS AvgCountryPopulation\nFROM Countries\nGROUP BY Region",
+            "verify-query": "SELECT Region, SUM(Population) AS TotalPopulation, AVG(Population) AS AvgCountryPopulation FROM Countries GROUP BY Region",
+            "order-sensitive": false,
+            "exercise-order": 2,
+            "initial-query": "SELECT * FROM Countries",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        },
+        {
+            "task-id": 13.3,
+            "description": "List countries with the number of cities each has",
+            "correct-query": "SELECT\n  co.Name,\n  COUNT(ci.CityID) AS NumCities\nFROM Countries co\nLEFT JOIN Cities ci ON co.CountryID = ci.CountryID\nGROUP BY co.Name",
+            "verify-query": "SELECT co.Name, COUNT(ci.CityID) AS NumCities FROM Countries co LEFT JOIN Cities ci ON co.CountryID = ci.CountryID GROUP BY co.Name",
+            "order-sensitive": false,
+            "exercise-order": 3,
+            "initial-query": "SELECT * FROM Countries",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        },
+        {
+            "task-id": 13.4,
+            "description": "Count, for each region, how many cities have populations greater than 5 million",
+            "correct-query": "SELECT\n  co.Region,\n  COUNT(ci.CityID) AS LargeCities\nFROM Countries co\nLEFT JOIN Cities ci ON co.CountryID = ci.CountryID AND ci.Population > 5000000\nGROUP BY co.Region",
+            "verify-query": "SELECT co.Region, COUNT(ci.CityID) AS LargeCities FROM Countries co LEFT JOIN Cities ci ON co.CountryID = ci.CountryID AND ci.Population > 5000000 GROUP BY co.Region",
+            "order-sensitive": false,
+            "exercise-order": 4,
+            "initial-query": "SELECT * FROM Countries",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        }
+    ]
+}

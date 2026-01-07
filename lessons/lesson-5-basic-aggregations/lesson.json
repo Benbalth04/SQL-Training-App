@@ -1,0 +1,66 @@
+{
+    "lesson-id": "lesson-5-basic-aggregations",
+    "title": "Lesson 5",
+    "subtitle": "Basic Aggregations",
+    "lesson-order": 5,
+    "database-tables": [
+        {
+            "name": "Countries",
+            "priorty": 1
+        }
+    ],
+    "exercise-tasks": [
+        {
+            "task-id": 5.1,
+            "description": "Count how many countries are in the table.",
+            "correct-query": "SELECT COUNT(*) FROM Countries;",
+            "verify-query": "SELECT COUNT(*) FROM Countries;",
+            "order-sensitive": "false",
+            "exercise-order": 1,
+            "initial-query": "SELECT * FROM Countries;",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        },
+        {
+            "task-id": 5.2,
+            "description": "Find the total population across all countries.",
+            "correct-query": "SELECT SUM(Population) FROM Countries;",
+            "verify-query": "SELECT SUM(Population) FROM Countries;",
+            "order-sensitive": "false",
+            "exercise-order": 2,
+            "initial-query": "SELECT * FROM Countries;",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        },
+        {
+            "task-id": 5.3,
+            "description": "Return the smallest and largest population values.",
+            "correct-query": "SELECT MIN(Population), MAX(Population) FROM Countries;",
+            "verify-query": "SELECT MIN(Population), MAX(Population) FROM Countries;",
+            "order-sensitive": "false",
+            "exercise-order": 3,
+            "initial-query": "SELECT * FROM Countries;",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        },
+        {
+            "task-id": 5.4,
+            "description": "Calculate the average population of all Asian countries.",
+            "correct-query": "SELECT AVG(Population) FROM Countries\nWHERE Region = 'Asia';",
+            "verify-query": "SELECT AVG(Population) FROM Countries\nWHERE Region = 'Asia';",
+            "order-sensitive": "false",
+            "exercise-order": 4,
+            "initial-query": "SELECT * FROM Countries;",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        }
+    ]
+}

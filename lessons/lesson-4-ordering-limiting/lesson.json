@@ -1,0 +1,79 @@
+{
+    "lesson-id": "lesson-4-ordering-limiting",
+    "title": "Lesson 4",
+    "subtitle": "Sorting and Limiting",
+    "lesson-order": 4,
+    "database-tables": [
+        {
+            "name": "Countries",
+            "priorty": 1
+        }
+    ],
+    "exercise-tasks": [
+        {
+            "task-id": 4.1,
+            "description": "List the names of countries in alphabetical",
+            "correct-query": "SELECT Name FROM Countries\nORDER BY Name ASC;",
+            "verify-query": "SELECT Name FROM Countries\nORDER BY Name ASC;",
+            "order-sensitive": true,
+            "exercise-order": 1,
+            "initial-query": "SELECT * FROM Countries;",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        },
+        {
+            "task-id": 4.2,
+            "description": "Show the name and population of countries sorted by population from largest to smallest.",
+            "correct-query": "SELECT Name, Population FROM Countries\nORDER BY Population DESC;",
+            "verify-query": "SELECT Name, Population FROM Countries\nORDER BY Population DESC;",
+            "order-sensitive": true,
+            "exercise-order": 2,
+            "initial-query": "SELECT * FROM Countries;",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        },
+        {
+            "task-id": 4.3,
+            "description": "Return the details of the first 3 countries when ordered alphabetically by region.",
+            "correct-query": "SELECT * FROM Countries\nORDER BY Region ASC\nLIMIT 3;",
+            "verify-query": "SELECT * FROM Countries\nORDER BY Region ASC\nLIMIT 3;",
+            "order-sensitive": true,
+            "exercise-order": 3,
+            "initial-query": "SELECT * FROM Countries;",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        },
+        {
+            "task-id": 4.4,
+            "description": "List the name and population of countries ordered by population (DESC), and for equal populations, order by name (ASC).",
+            "correct-query": "SELECT Name, Population FROM Countries\nORDER BY Population DESC, Name ASC;",
+            "verify-query": "SELECT Name, Population FROM Countries\nORDER BY Population DESC, Name ASC;",
+            "order-sensitive": true,
+            "exercise-order": 4,
+            "initial-query": "SELECT * FROM Countries;",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        },
+        {
+            "task-id": 4.5,
+            "description": "Show the name and population of the largest country by population.",
+            "correct-query": "SELECT Name, Population FROM Countries\nORDER BY Population DESC\nLIMIT 1;",
+            "verify-query": "SELECT Name, Population FROM Countries\nORDER BY Population DESC\nLIMIT 1;",
+            "order-sensitive": true,
+            "exercise-order": 5,
+            "initial-query": "SELECT * FROM Countries;",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        }
+    ]
+}

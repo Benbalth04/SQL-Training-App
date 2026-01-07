@@ -1,0 +1,87 @@
+{
+    "lesson-id": "lesson-9-multi-joins",
+    "title": "Lesson 9",
+    "subtitle": "Multi-Table Joins",
+    "lesson-order": 9,
+    "database-tables": [
+        {
+            "name": "Countries",
+            "priority": 1
+        },
+        {
+            "name": "Cities",
+            "priority": 2
+        },
+        {
+            "name": "People",
+            "priority": 3
+        }
+    ],
+    "exercise-tasks": [
+        {
+            "task-id": 9.1,
+            "description": "List all people with their city names",
+            "correct-query": "SELECT\n  People.Name AS PersonName,\n  Cities.Name AS CityName\nFROM People\nINNER JOIN Cities ON People.CityID = Cities.CityID",
+            "verify-query": "SELECT People.Name AS PersonName, Cities.Name AS CityName FROM People INNER JOIN Cities ON People.CityID = Cities.CityID",
+            "order-sensitive": false,
+            "exercise-order": 1,
+            "initial-query": "SELECT * FROM People",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        },
+        {
+            "task-id": 9.2,
+            "description": "Show people with their city and country names",
+            "correct-query": "SELECT\n  p.Name AS PersonName,\n  c.Name AS CityName,\n  co.Name AS CountryName\nFROM People p\nINNER JOIN Cities c ON p.CityID = c.CityID\nINNER JOIN Countries co ON c.CountryID = co.CountryID",
+            "verify-query": "SELECT p.Name AS PersonName, c.Name AS CityName, co.Name AS CountryName FROM People p INNER JOIN Cities c ON p.CityID = c.CityID INNER JOIN Countries co ON c.CountryID = co.CountryID",
+            "order-sensitive": false,
+            "exercise-order": 2,
+            "initial-query": "SELECT * FROM People",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        },
+        {
+            "task-id": 9.3,
+            "description": "List people who live in cities with a population over 5 million, including city and country",
+            "correct-query": "SELECT\n  p.Name AS PersonName,\n  c.Name AS CityName,\n  co.Name AS CountryName\n  FROM People p\nINNER JOIN Cities c ON p.CityID = c.CityID\nINNER JOIN Countries co ON c.CountryID = co.CountryID\nWHERE c.Population > 5000000",
+            "verify-query": "SELECT p.Name AS PersonName, c.Name AS CityName, co.Name AS CountryName FROM People p INNER JOIN Cities c ON p.CityID = c.CityID INNER JOIN Countries co ON c.CountryID = co.CountryID WHERE c.Population > 5000000",
+            "order-sensitive": false,
+            "exercise-order": 3,
+            "initial-query": "SELECT * FROM People",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        },
+        {
+            "task-id": 9.4,
+            "description": "Count the number of people per country",
+            "correct-query": "SELECT\n  co.Name AS CountryName,\n  COUNT(p.PersonID) AS NumPeople\nFROM Countries co\nINNER JOIN Cities c ON co.CountryID = c.CountryID\nINNER JOIN People p ON p.CityID = c.CityID\nGROUP BY co.Name",
+            "verify-query": "SELECT co.Name AS CountryName, COUNT(p.PersonID) AS NumPeople FROM Countries co INNER JOIN Cities c ON co.CountryID = c.CountryID INNER JOIN People p ON p.CityID = c.CityID GROUP BY co.Name",
+            "order-sensitive": false,
+            "exercise-order": 4,
+            "initial-query": "SELECT * FROM People",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        },
+        {
+            "task-id": 9.5,
+            "description": "List people, their city, and country using table aliases for all tables",
+            "correct-query": "SELECT\n  p.Name AS PersonName,\n  c.Name AS CityName,\n  co.Name AS CountryName\nFROM People p\nINNER JOIN Cities c ON p.CityID = c.CityID\nINNER JOIN Countries co ON c.CountryID = co.CountryID",
+            "verify-query": "SELECT p.Name AS PersonName, c.Name AS CityName, co.Name AS CountryName FROM People p INNER JOIN Cities c ON p.CityID = c.CityID INNER JOIN Countries co ON c.CountryID = co.CountryID",
+            "order-sensitive": false,
+            "exercise-order": 5,
+            "initial-query": "SELECT * FROM People",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        }
+    ]
+}

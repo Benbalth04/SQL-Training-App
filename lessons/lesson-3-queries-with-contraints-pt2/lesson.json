@@ -1,0 +1,79 @@
+{
+    "lesson-id": "lesson-3-queries-with-contraints-pt2",
+    "title": "Lesson 3",
+    "subtitle": "Queries with constraints (Pt. 2)",
+    "lesson-order": 3,
+    "database-tables": [
+        {
+            "name": "Countries",
+            "priority": 1
+        }
+    ],
+    "exercise-tasks": [
+        {
+            "task-id": 3.1,
+            "description": "Find all details about countries whose name begins with the letter 'A'.",
+            "correct-query": "SELECT * FROM Countries\nWHERE Name LIKE 'A%';",
+            "verify-query": "SELECT * FROM Countries\nWHERE Name LIKE 'A%';",
+            "order-sensitive": false,
+            "exercise-order": 1,
+            "initial-query": "SELECT * FROM Countries;",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        },
+        {
+            "task-id": 3.2,
+            "description": "Find the name of all countries whose name contains the letter 'n' (case-insensitive).",
+            "correct-query": "SELECT Name FROM Countries\nWHERE Name LIKE '%n%';",
+            "verify-query": "SELECT Name FROM Countries\nWHERE Name LIKE '%n%';",
+            "order-sensitive": false,
+            "exercise-order": 2,
+            "initial-query": "SELECT * FROM Countries;",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        },
+        {
+            "task-id": 3.3,
+            "description": "Find a list of distinct regions from the Countries table.",
+            "correct-query": "SELECT DISTINCT Region FROM Countries;",
+            "verify-query": "SELECT DISTINCT Region FROM Countries;",
+            "order-sensitive": false,
+            "exercise-order": 3,
+            "initial-query": "SELECT * FROM Countries;",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        },
+        {
+            "task-id": 3.4,
+            "description": "Find the name of all countries with a name that does not contain 'a'.",
+            "correct-query": "SELECT Name FROM Countries\nWHERE Name NOT LIKE '%a%';",
+            "verify-query": "SELECT Name FROM Countries\nWHERE Name NOT LIKE '%a%';",
+            "order-sensitive": false,
+            "exercise-order": 4,
+            "initial-query": "SELECT * FROM Countries;",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        },
+        {
+            "task-id": 3.5,
+            "description": "Find the details of all countries that do not have a NULL population value.",
+            "correct-query": "SELECT * FROM Countries\nWHERE Population IS NOT NULL;",
+            "verify-query": "SELECT * FROM Countries\nWHERE Population IS NOT NULL;",
+            "order-sensitive": false,
+            "exercise-order": 5,
+            "initial-query": "SELECT * FROM Countries;",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        }
+    ]
+}

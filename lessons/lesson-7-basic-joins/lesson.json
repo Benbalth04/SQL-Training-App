@@ -1,0 +1,83 @@
+{
+    "lesson-id": "lesson-7-basic-joins",
+    "title": "Lesson 7",
+    "subtitle": "Basic Joins",
+    "lesson-order": 7,
+    "database-tables": [
+        {
+            "name": "Countries",
+            "priority": 1
+        },
+        {
+            "name": "Cities",
+            "priority": 2
+        }
+    ],
+    "exercise-tasks": [
+        {
+            "task-id": 7.1,
+            "description": "List all cities with their corresponding country names",
+            "correct-query": "SELECT\n  Cities.Name AS CityName,\n  Countries.Name AS CountryName\nFROM Cities\nINNER JOIN Countries ON Cities.CountryID = Countries.CountryID",
+            "verify-query": "SELECT Cities.Name AS CityName, Countries.Name AS CountryName FROM Cities INNER JOIN Countries ON Cities.CountryID = Countries.CountryID",
+            "order-sensitive": false,
+            "exercise-order": 1,
+            "initial-query": "SELECT * FROM Cities",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        },
+        {
+            "task-id": 7.2,
+            "description": "Show the city name and population along with the country name",
+            "correct-query": "SELECT\n  Cities.Name AS CityName,\n  Cities.Population,\n  Countries.Name AS CountryName\nFROM Cities\nINNER JOIN Countries ON Cities.CountryID = Countries.CountryID",
+            "verify-query": "SELECT Cities.Name AS CityName, Cities.Population, Countries.Name AS CountryName FROM Cities INNER JOIN Countries ON Cities.CountryID = Countries.CountryID",
+            "order-sensitive": false,
+            "exercise-order": 2,
+            "initial-query": "SELECT * FROM Cities",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        },
+        {
+            "task-id": 7.3,
+            "description": "List cities with their countries where the city population is greater than 5 million",
+            "correct-query": "SELECT\n  Cities.Name AS CityName,\n  Countries.Name AS CountryName,\n  Cities.Population\nFROM Cities\nINNER JOIN Countries ON Cities.CountryID = Countries.CountryID\nWHERE Cities.Population > 5000000",
+            "verify-query": "SELECT Cities.Name AS CityName, Countries.Name AS CountryName, Cities.Population FROM Cities INNER JOIN Countries ON Cities.CountryID = Countries.CountryID WHERE Cities.Population > 5000000",
+            "order-sensitive": false,
+            "exercise-order": 3,
+            "initial-query": "SELECT * FROM Cities",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        },
+        {
+            "task-id": 7.4,
+            "description": "Count the number of cities in each country",
+            "correct-query": "SELECT\n  Countries.Name AS CountryName,\n  COUNT(Cities.CityID) AS NumCities\nFROM Countries\nINNER JOIN Cities ON Countries.CountryID = Cities.CountryID\nGROUP BY Countries.Name",
+            "verify-query": "SELECT Countries.Name AS CountryName, COUNT(Cities.CityID) AS NumCities FROM Countries INNER JOIN Cities ON Countries.CountryID = Cities.CountryID GROUP BY Countries.Name",
+            "order-sensitive": false,
+            "exercise-order": 4,
+            "initial-query": "SELECT * FROM Cities",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        },
+        {
+            "task-id": 7.5,
+            "description": "List cities with country names using table aliases for both tables",
+            "correct-query": "SELECT\n  c.Name AS CityName,\n  co.Name AS CountryName\nFROM Cities c\nINNER JOIN Countries co ON c.CountryID = co.CountryID",
+            "verify-query": "SELECT c.Name AS CityName, co.Name AS CountryName FROM Cities c INNER JOIN Countries co ON c.CountryID = co.CountryID",
+            "order-sensitive": false,
+            "exercise-order": 5,
+            "initial-query": "SELECT * FROM Cities",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true
+        }
+    ]
+}

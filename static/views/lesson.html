@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>SQL Lesson</title>
+    <link rel="icon" type="image/png" href="/static/assets/logo.png">
+
+    <link rel="stylesheet" href="/static/css/lesson.css">
+    <link rel="stylesheet" href="/static/css/timer.css">
+
+    <!-- Highlight.js (for code block highlighting inside markdown) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+    <div class="content">
+        <!-- Header -->
+        <div class="header">
+            <a class="site_logo" href="/"><img src="/static/assets/logo.png" alt="logo" style="height:40px"></a>
+            <div class="site_name">
+                Deloitte SQL Lessons <span class="highlight">Workshop</span>
+            </div>
+
+            <div class="menu_buttons">
+                <button id="menu-toggle" class="menu_button">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+
+            <!-- Slide-out menu container -->
+            <div id="menu-panel" class="menu_container" style="display:none;">
+                <div class="menu" id="lesson-menu-list">
+                    <!-- title and lessons injected here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Main lesson area -->
+        <div class="lesson">
+            <div class="title" id="lesson-title">Loading...</div>
+
+            <!-- lesson body will be markdown -> HTML -->
+            <div class="body" id="lesson-body">
+                <div class="loading_message">Loading lesson content…</div>
+            </div>
+
+            <!-- Exercise block -->
+            <div class="exercise">
+                <div class="table-preview-container"></div>
+                <div class="exercise-container">
+                    
+                    <div class="answer-overlay" id="answer-overlay"></div>
+
+                    <!-- Answer/error popup -->
+                    <div class="answer-popup" id="answer-popup">
+                        <div class="answer-popup-text" id="answer-popup-text"></div>
+                        <div class="answer-popup-sql" id="answer-popup-sql"></div>
+                        <div class="answer-popup-button" id="close-answer-popup-btn">Close</div>
+                    </div>
+
+                    <!-- LEFT SIDE -->
+                    <div class="exercise-left">
+
+                        <!-- Results table (2/3 height) -->
+                        <div class="results-table-preview" id="results-table-preview">
+                            <!-- Injected dynamic results table -->
+                        </div>
+
+                        <!-- Editor (1/3 height) -->
+                        <div class="editor-container">
+                            <div id="editor"></div>
+                            <div id="sql-popup"></div>
+                            <div class="editor-controls">
+                                <button class="btn-run" id="run-sql-btn">Submit</button>
+                                <button class="btn-reset" id="reset-sql-btn">Reset</button>
+                                <button class="btn-reset" id="reveal-answer-btn">Reveal Answer</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- RIGHT SIDE -->
+                    <div class="tasks-container">
+                        <div class="tasks-list" id="tasks-list">
+                            <!-- Populated by JS -->
+                        </div>
+                        <div class="next-lesson-btn" id="next-lesson-btn">Next Lesson</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer" style="margin-top:1.5em;">
+            <div class="copyright">
+                <div class="text">© Deloitte</div>
+                Created By <a href="https://www.linkedin.com/in/ben-balthes-b35bb71bb/">Ben Balthes</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="timer-widget-root"></div>
+
+    <!-- Dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/5.1.1/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+
+    <!-- Monaco loader -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.45.0/min/vs/loader.min.js"></script>
+
+    <!-- Custom JS -->
+    <script type="module" src="/static/js/lesson.js"></script>
+    <script type="module" src="/static/js/timer.js"></script>
+</body>
+</html>

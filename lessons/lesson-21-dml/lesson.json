@@ -1,0 +1,66 @@
+{
+    "lesson-id": "lesson-21-dml",
+    "title": "Lesson 21",
+    "subtitle": "Changing Data in Tables",
+    "lesson-order": 21,
+    "database-tables": [
+        {
+            "name": "Countries",
+            "priority": 1
+        }
+    ],
+    "exercise-tasks": [
+        {
+            "task-id": 21.1,
+            "description": "Insert a new country into the Countries table.",
+            "correct-query": "INSERT INTO Countries (Name, Region, Population)\nVALUES ('Testland', 'Oceania', 123456);",
+            "verify-query": "SELECT * FROM Countries WHERE Name = 'Testland';",
+            "order-sensitive": false,
+            "exercise-order": 1,
+            "initial-query": "SELECT * FROM Countries;",
+            "large-query": false,
+            "allow-dml": true,
+            "create-tables": false,
+            "preview-allowed": false
+        },
+        {
+            "task-id": 21.2,
+            "description": "Update the population of Australia to 27000000.",
+            "correct-query": "UPDATE Countries\nSET Population = 27000000\nWHERE Name = 'Australia';",
+            "verify-query": "SELECT * FROM Countries WHERE Name = 'Testland';",
+            "order-sensitive": false,
+            "exercise-order": 2,
+            "initial-query": "SELECT * FROM Countries;",
+            "large-query": false,
+            "allow-dml": true,
+            "create-tables": false,
+            "preview-allowed": true
+        },
+        {
+            "task-id": 21.3,
+            "description": "Delete the country named 'Testland' from the table.",
+            "correct-query": "DELETE FROM Countries\nWHERE Name = 'Testland';",
+            "verify-query": "SELECT * FROM Countries WHERE Name = 'Testland';",
+            "order-sensitive": false,
+            "exercise-order": 3,
+            "initial-query": "SELECT * FROM Countries;",
+            "large-query": false,
+            "allow-dml": true,
+            "create-tables": false,
+            "preview-allowed": true
+        },
+        {
+            "task-id": 21.4,
+            "description": "Attempt to drop the Countries table.",
+            "correct-query": "DROP TABLE Countries;",
+            "verify-query": "SELECT * FROM Countries WHERE Name = 'Testland';",
+            "order-sensitive": true,
+            "exercise-order": 4,
+            "initial-query": "SELECT * FROM Countries;",
+            "large-query": false,
+            "allow-dml": true,
+            "create-tables": false,
+            "preview-allowed": true
+        }
+    ]
+}
