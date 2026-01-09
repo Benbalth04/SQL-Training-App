@@ -1179,4 +1179,4 @@ if __name__ == "__main__":
         print(f"Loaded {len(LESSON_LIST)} lessons")
         print(f"Loaded {len(TASKS_LIST)} tasks")
         webbrowser.open_new(APP_URL)
-        app.run(host="0.0.0.0", port=8000, debug=True, use_reloader=True)
+        app.run(host="0.0.0.0", port=8000, debug=True, use_reloader=False)
