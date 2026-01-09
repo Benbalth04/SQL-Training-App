@@ -22,7 +22,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": "https://chatgpt.com/?prompt=what-is-the-select-query-in-sql"
+            "chatgpt-prompt": "test"
         },
         {
             "task-id": 1.2,

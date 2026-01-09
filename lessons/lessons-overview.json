@@ -121,42 +121,42 @@
             "difficulty": "Advanced"
         },
         {
-            "lesson-id": "lesson-17-nested-analytical-queries",
-            "title": "Lesson 17",
+            "lesson-id": "lesson-16-nested-analytical-queries",
+            "title": "Lesson 16",
             "subtitle": "Nested Analytical Queries",
-            "lesson-order": 17,
+            "lesson-order": 16,
             "key-topics": "Combining multiple window functions + CTEs",
             "difficulty": "Advanced"
         },
         {
-            "lesson-id": "lesson-18-recursive-ctes",
-            "title": "Lesson 18",
+            "lesson-id": "lesson-17-recursive-ctes",
+            "title": "Lesson 17",
             "subtitle": "Recursive CTEs",
-            "lesson-order": 18,
+            "lesson-order": 17,
             "key-topics": "Recursive CTEs",
             "difficulty": "Advanced"
         },
         {
-            "lesson-id": "lesson-19-creating-basic-tables",
-            "title": "Lesson 19",
+            "lesson-id": "lesson-18-creating-basic-tables",
+            "title": "Lesson 18",
             "subtitle": "Creating Basic Tables",
-            "lesson-order": 19,
+            "lesson-order": 18,
             "key-topics": "Basic table definitions",
             "difficulty": "Beginner"
         },
         {
-            "lesson-id": "lesson-20-creating-multiple-tables",
-            "title": "Lesson 20",
+            "lesson-id": "lesson-19-creating-multiple-tables",
+            "title": "Lesson 19",
             "subtitle": "Creating Multiple Tables",
-            "lesson-order": 20,
+            "lesson-order": 19,
             "key-topics": "FOREIGN KEYS, CONTRAINTS",
             "difficulty": "Intermediate"
         },
         {
-            "lesson-id": "lesson-21-dml",
-            "title": "Lesson 21",
+            "lesson-id": "lesson-20-dml",
+            "title": "Lesson 20",
             "subtitle": "Changing Data in Tables",
-            "lesson-order": 21,
+            "lesson-order": 20,
             "key-topics": "Basic INSERT, DELETE, DROP, UPDATE",
             "difficulty": "Beginner"
         }

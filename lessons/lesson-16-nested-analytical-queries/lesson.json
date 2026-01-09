@@ -1,8 +1,8 @@
 {
-    "lesson-id": "lesson-17-nested-analytical-queries",
-    "title": "Lesson 17",
+    "lesson-id": "lesson-16-nested-analytical-queries",
+    "title": "Lesson 16",
     "subtitle": "Nested Analytical Queries",
-    "lesson-order": 17,
+    "lesson-order": 16,
     "database-tables": [
         {
             "name": "Countries",
@@ -15,7 +15,7 @@
     ],
     "exercise-tasks": [
         {
-            "task-id": 17.1,
+            "task-id": 16.1,
             "description": "Create a CTE that calculates total population per region",
             "correct-query": "WITH RegionTotals AS (\n  SELECT Name,\n    Region,\n    Population,\n    SUM(Population) OVER (PARTITION BY Region) AS RegionTotal\n  FROM Countries\n)\n\nSELECT * FROM RegionTotals",
             "verify-query": "WITH RegionTotals AS (SELECT Name, Region, Population, SUM(Population) OVER (PARTITION BY Region) AS RegionTotal FROM Countries) SELECT * FROM RegionTotals",
@@ -29,7 +29,7 @@
             "chatgpt-prompt": true
         },
         {
-            "task-id": 17.2,
+            "task-id": 16.2,
             "description": "Using the CTE, rank countries within each region by population",
             "correct-query": "WITH RegionTotals AS (\n  SELECT Name,\n    Region,\n    Population,\n    SUM(Population) OVER (PARTITION BY Region) AS RegionTotal\n  FROM Countries)\n\nSELECT Name,\n  Region,\n  Population,\n  RegionTotal, RANK() OVER (PARTITION BY Region ORDER BY Population DESC) AS RegionRank\nFROM RegionTotals",
             "verify-query": "WITH RegionTotals AS (SELECT Name, Region, Population, SUM(Population) OVER (PARTITION BY Region) AS RegionTotal FROM Countries) SELECT Name, Region, Population, RegionTotal, RANK() OVER (PARTITION BY Region ORDER BY Population DESC) AS RegionRank FROM RegionTotals",
@@ -43,7 +43,7 @@
             "chatgpt-prompt": true
         },
         {
-            "task-id": 17.3,
+            "task-id": 16.3,
             "description": "Calculate running totals and previous country population per region in a single query",
             "correct-query": "SELECT\n  Name,\n  Region,\n  Population,\n  SUM(Population) OVER (PARTITION BY Region ORDER BY Population) AS RunningTotal,\n  LAG(Population) OVER (PARTITION BY Region ORDER BY Population) AS PrevPop\nFROM Countries",
             "verify-query": "SELECT Name, Region, Population, SUM(Population) OVER (PARTITION BY Region ORDER BY Population) AS RunningTotal, LAG(Population) OVER (PARTITION BY Region ORDER BY Population) AS PrevPop FROM Countries",
@@ -57,7 +57,7 @@
             "chatgpt-prompt": true
         },
         {
-            "task-id": 17.4,
+            "task-id": 16.4,
             "description": "Combine a CTE with multiple window functions: running total, rank, and previous population for each region",
             "correct-query": "WITH RegionMetrics AS (\n  SELECT\n    Name,\n    Region,\n    Population,\n    SUM(Population) OVER (PARTITION BY Region ORDER BY Population) AS RunningTotal,\n    LAG(Population) OVER (PARTITION BY Region ORDER BY Population) AS PrevPop\n  FROM Countries\n)\n\nSELECT\n  Name,\n  Region,\n  Population,\n  RunningTotal,\n  PrevPop,\n  RANK() OVER (PARTITION BY Region ORDER BY Population DESC) AS RegionRank\nFROM RegionMetrics",
             "verify-query": "WITH RegionMetrics AS (SELECT Name, Region, Population, SUM(Population) OVER (PARTITION BY Region ORDER BY Population) AS RunningTotal, LAG(Population) OVER (PARTITION BY Region ORDER BY Population) AS PrevPop FROM Countries) SELECT Name, Region, Population, RunningTotal, PrevPop, RANK() OVER (PARTITION BY Region ORDER BY Population DESC) AS RegionRank FROM RegionMetrics",

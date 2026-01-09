@@ -1,8 +1,8 @@
 {
-    "lesson-id": "lesson-18-recursive-ctes",
-    "title": "Lesson 18",
+    "lesson-id": "lesson-17-recursive-ctes",
+    "title": "Lesson 17",
     "subtitle": "Recursive CTEs",
-    "lesson-order": 18,
+    "lesson-order": 17,
     "database-tables": [
         {
             "name": "Countries",
@@ -11,7 +11,7 @@
     ],
     "exercise-tasks": [
         {
-            "task-id": 18.1,
+            "task-id": 17.1,
             "description": "Create a recursive CTE that selects all country names with a starting level value of 1.",
             "correct-query": "WITH RECURSIVE CountryLevels AS (\n  SELECT Name,\n  1 AS level\n  FROM Countries\n)\n\nSELECT * FROM CountryLevels;",
             "verify-query": "WITH RECURSIVE CountryLevels AS (SELECT Name, 1 AS level FROM Countries) SELECT * FROM CountryLevels;",
@@ -25,7 +25,7 @@
             "chatgpt-prompt": true
         },
         {
-            "task-id": 18.2,
+            "task-id": 17.2,
             "description": "Extend the recursive CTE so it adds a second level for each country.",
             "correct-query": "WITH RECURSIVE CountryLevels AS (\n  SELECT Name, 1 AS level\n  FROM Countries\n  \n  UNION ALL\n  \n  SELECT Name, level + 1\n  FROM CountryLevels\n  WHERE level < 2\n)\n\nSELECT * FROM CountryLevels;",
             "verify-query": "WITH RECURSIVE CountryLevels AS (SELECT Name, 1 AS level FROM Countries UNION ALL SELECT Name, level + 1 FROM CountryLevels WHERE level < 2) SELECT * FROM CountryLevels;",
@@ -39,7 +39,7 @@
             "chatgpt-prompt": true
         },
         {
-            "task-id": 18.3,
+            "task-id": 17.3,
             "description": "Modify the recursive CTE so it includes population and stops after level 3.",
             "correct-query": "WITH RECURSIVE CountryLevels AS (\n  SELECT Name, Population, 1 AS level\n  FROM Countries\n\n  UNION ALL\n\n  SELECT Name, Population, level + 1 FROM CountryLevels\n  WHERE level < 3\n)\n\nSELECT * FROM CountryLevels;",
             "verify-query": "WITH RECURSIVE CountryLevels AS (SELECT Name, Population, 1 AS level FROM Countries UNION ALL SELECT Name, Population, level + 1 FROM CountryLevels WHERE level < 3) SELECT * FROM CountryLevels;",
@@ -53,7 +53,7 @@
             "chatgpt-prompt": true
         },
         {
-            "task-id": 18.4,
+            "task-id": 17.4,
             "description": "Return only the rows from the recursive CTE where the level value is 3.",
             "correct-query": "WITH RECURSIVE CountryLevels AS (\n  SELECT Name, Population, 1 AS level FROM Countries\n\n  UNION ALL\n\n  SELECT Name, Population, level + 1 FROM CountryLevels\n  WHERE level < 3\n)\n\nSELECT Name, Population FROM CountryLevels\nWHERE level = 3;",
             "verify-query": "WITH RECURSIVE CountryLevels AS (SELECT Name, Population, 1 AS level FROM Countries UNION ALL SELECT Name, Population, level + 1 FROM CountryLevels WHERE level < 3) SELECT Name, Population FROM CountryLevels WHERE level = 3;",

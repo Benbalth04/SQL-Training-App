@@ -1,12 +1,12 @@
 {
-    "lesson-id": "lesson-19-creating-basic-tables",
-    "title": "Lesson 19",
+    "lesson-id": "lesson-18-creating-basic-tables",
+    "title": "Lesson 18",
     "subtitle": "Creating Basic Tables",
-    "lesson-order": 19,
+    "lesson-order": 18,
     "database-tables": [],
     "exercise-tasks": [
         {
-            "task-id": 19.1,
+            "task-id": 18.1,
             "description": "Create a simple table called Sample with ID (Integer) as the primary key and Description as a text column",
             "correct-query": "CREATE TABLE Sample (\n  ID INTEGER PRIMARY KEY,\n  Description TEXT\n);",
             "verify-query": "CREATE TABLE Sample (ID INTEGER PRIMARY KEY, Description TEXT);",
@@ -21,7 +21,7 @@
             "chatgpt-prompt": true
         },
         {
-            "task-id": 19.2,
+            "task-id": 18.2,
             "description": "Write a CREATE TABLE statement for a table named Continents with columns ContinentID (INTEGER), Name (TEXT), Size (INTEGER), and CountryCount (INTEGER). Ensure CountryID is a primary key and auto-increments. Make Name, Size and CountryCount NOT NULL.",
             "correct-query": "CREATE TABLE Continents (\n  ContinentID INTEGER PRIMARY KEY AUTOINCREMENT,\n  Name TEXT NOT NULL,\n  Size INTEGER NOT NULL,\n  CountryCount INTEGER NOT NULL\n);",
             "verify-query": "CREATE TABLE Continents (ContinentID INTEGER PRIMARY KEY AUTOINCREMENT, Name TEXT NOT NULL, Size INTEGER NOT NULL, CountryCount INTEGER NOT NULL);",
