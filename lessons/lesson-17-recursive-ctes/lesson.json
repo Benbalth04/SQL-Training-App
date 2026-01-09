@@ -22,7 +22,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why this SQL query correctly creates a recursive CTE with all country names and a starting level of 1. How does WITH RECURSIVE define a CTE that can reference itself? Why is the initial SELECT sufficient here for level 1? What is the structure of the recursive CTE even if no recursion is yet applied?\n\nCorrect query:\nWITH RECURSIVE CountryLevels AS (\n  SELECT Name,\n  1 AS level\n  FROM Countries\n)\n\nSELECT * FROM CountryLevels;"
         },
         {
             "task-id": 17.2,
@@ -36,7 +36,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why this SQL query correctly extends the recursive CTE to add a second level for each country. How does the UNION ALL combine the anchor member and the recursive member? How does the condition WHERE level < 2 control the recursion depth? Why does each country appear twice, once for level 1 and once for level 2?\n\nCorrect query:\nWITH RECURSIVE CountryLevels AS (\n  SELECT Name, 1 AS level\n  FROM Countries\n  \n  UNION ALL\n  \n  SELECT Name, level + 1\n  FROM CountryLevels\n  WHERE level < 2\n)\n\nSELECT * FROM CountryLevels;"
         },
         {
             "task-id": 17.3,
@@ -50,7 +50,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why this SQL query correctly modifies the recursive CTE to include population and stops after level 3. How does adding Population to both the anchor and recursive members work? How does the recursion stop after level 3 using WHERE level < 3? How does the UNION ALL maintain all intermediate rows for each level?\n\nCorrect query:\nWITH RECURSIVE CountryLevels AS (\n  SELECT Name, Population, 1 AS level\n  FROM Countries\n\n  UNION ALL\n\n  SELECT Name, Population, level + 1 FROM CountryLevels\n  WHERE level < 3\n)\n\nSELECT * FROM CountryLevels;"
         },
         {
             "task-id": 17.4,
@@ -64,7 +64,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why this SQL query correctly returns only the rows from the recursive CTE where level = 3. How does the WHERE level = 3 filter work on the CTE results? Why is the recursive logic needed even if we only return the last level? How does the CTE maintain all previous levels before filtering?\n\nCorrect query:\nWITH RECURSIVE CountryLevels AS (\n  SELECT Name, Population, 1 AS level FROM Countries\n\n  UNION ALL\n\n  SELECT Name, Population, level + 1 FROM CountryLevels\n  WHERE level < 3\n)\n\nSELECT Name, Population FROM CountryLevels\nWHERE level = 3;"
         }
     ]
 }

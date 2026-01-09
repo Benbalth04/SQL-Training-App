@@ -22,7 +22,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why 'SELECT Region, COUNT() FROM Countries GROUP BY Region' correctly counts the number of countries per region. How does the GROUP BY clause group rows by Region? How does COUNT() work on each group, and why must non-aggregated columns appear in GROUP BY?"
         },
         {
             "task-id": 6.2,
@@ -36,7 +36,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why 'SELECT Region, SUM(Population) FROM Countries GROUP BY Region' correctly calculates the total population per region. How does GROUP BY divide the table into regions? How does SUM(Population) aggregate values within each group?"
         },
         {
             "task-id": 6.3,
@@ -50,7 +50,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why 'SELECT Region, SUM(Population) FROM Countries GROUP BY Region HAVING SUM(Population) > 100000000' returns only regions with total population over 100 million. What is the role of the HAVING clause versus WHERE? How does GROUP BY interact with the aggregation SUM(Population)?"
         },
         {
             "task-id": 6.4,
@@ -64,7 +64,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why 'SELECT Region, COUNT() FROM Countries GROUP BY Region HAVING COUNT() > 2' returns only regions with more than two countries. How does GROUP BY aggregate rows by region? How does the HAVING clause filter groups based on the COUNT() result, and why is COUNT() used here?"
         }
     ]
 }

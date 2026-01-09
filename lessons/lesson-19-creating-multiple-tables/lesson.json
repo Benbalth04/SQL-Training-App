@@ -18,7 +18,7 @@
             "allow-dml": false,
             "create-tables": true,
             "preview-allowed": false,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why this SQL query correctly creates the States table with a primary key and a foreign key constraint. How does AUTOINCREMENT work for StateID? Why is CountryID marked as NOT NULL, and what does the FOREIGN KEY (CountryID) REFERENCES Countries(CountryID) clause enforce? How does this structure maintain referential integrity between the States and Countries tables?\n\nCorrect query:\nCREATE TABLE States (\n  StateID INTEGER PRIMARY KEY AUTOINCREMENT,\n  CountryID TEXT NOT NULL, FOREIGN KEY (CountryID) REFERENCES Countries(CountryID)\n);"
         }
     ]
 }

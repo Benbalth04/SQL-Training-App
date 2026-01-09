@@ -22,7 +22,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why 'SELECT COUNT(*) FROM Countries' returns the total number of countries. How does the COUNT() function work, and why is '*' used inside it? What does the FROM keyword indicate in this context?"
         },
         {
             "task-id": 5.2,
@@ -36,7 +36,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why 'SELECT SUM(Population) FROM Countries' correctly calculates the total population. How does the SUM() function aggregate column values? Why is Population specified inside SUM(), and what is the role of the FROM clause?"
         },
         {
             "task-id": 5.3,
@@ -50,7 +50,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why 'SELECT MIN(Population), MAX(Population) FROM Countries' returns the smallest and largest populations. How do the MIN() and MAX() functions work? Why are both functions applied to the Population column, and what does the FROM clause specify?"
         },
         {
             "task-id": 5.4,
@@ -64,7 +64,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why 'SELECT AVG(Population) FROM Countries WHERE Region = 'Asia'' calculates the average population of Asian countries. How does AVG() compute the mean value? How does the WHERE clause filter for only Asian countries, and why is specifying Population necessary for the aggregation?"
         }
     ]
 }

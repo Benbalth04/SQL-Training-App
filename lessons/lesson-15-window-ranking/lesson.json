@@ -22,7 +22,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why this SQL query correctly assigns a unique row number to each country ordered by population descending. How does ROW_NUMBER() OVER (ORDER BY Population DESC) work? What is the difference between ROW_NUMBER, RANK, and DENSE_RANK in terms of handling ties?\n\nCorrect query:\nSELECT\n  Name,\n  Population,\n  ROW_NUMBER() OVER (ORDER BY Population DESC) AS RowNum\nFROM Countries"
         },
         {
             "task-id": 15.2,
@@ -36,7 +36,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why this SQL query correctly assigns ranks to countries by descending population. How does RANK() OVER (ORDER BY Population DESC) assign the same rank to tied values and skip subsequent ranks? How is this different from ROW_NUMBER or DENSE_RANK?\n\nCorrect query:\nSELECT\n  Name,\n  Population,\n  RANK() OVER (ORDER BY Population DESC) AS Rank\nFROM Countries"
         },
         {
             "task-id": 15.3,
@@ -50,7 +50,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why this SQL query correctly assigns dense ranks to countries by descending population. How does DENSE_RANK() OVER (ORDER BY Population DESC) handle ties differently than RANK()? Why does it not skip ranks after ties?\n\nCorrect query:\nSELECT\n  Name,\n  Population,\n  DENSE_RANK() OVER (ORDER BY Population DESC) AS DenseRank\nFROM Countries"
         },
         {
             "task-id": 15.4,
@@ -64,7 +64,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why this SQL query correctly divides all countries into 3 tiers based on population using NTILE. How does NTILE(3) OVER (ORDER BY Population DESC) assign rows to each bucket? How does it handle cases where the number of rows isn't divisible by 3? Why is ORDER BY necessary inside the NTILE function?\n\nCorrect query:\nSELECT\n  Name,\n  Population,\n  NTILE(3) OVER (ORDER BY Population DESC) AS PopulationTier\nFROM Countries"
         }
     ]
 }

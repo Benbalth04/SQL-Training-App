@@ -22,7 +22,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why the query 'SELECT Name FROM Countries WHERE Region = 'Oceania'' correctly finds only the countries in Oceania. What role does the WHERE clause play? How does the '=' operator filter the rows? What would happen if the WHERE clause was omitted?"
         },
         {
             "task-id": 2.2,
@@ -36,7 +36,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why 'SELECT Name, Population FROM Countries WHERE Population > 50000000' returns only countries with a population greater than 50 million. How does the WHERE clause combined with '>' filter results? Why are multiple columns listed after SELECT, and how does this affect the output?"
         },
         {
             "task-id": 2.3,
@@ -50,7 +50,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why 'SELECT Name, region FROM Countries WHERE Region IN ('Asia', 'Europe')' correctly retrieves countries in either Asia or Europe. How does the IN keyword simplify multiple equality conditions? How does the query know which columns to return, and what is the role of the WHERE clause here?"
         },
         {
             "task-id": 2.4,
@@ -64,7 +64,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why 'SELECT * FROM Countries WHERE Region <> 'North America'' correctly returns all countries except those in North America. What does the '<>' operator mean? How does using '*' differ from specifying particular columns? How does the WHERE clause control which rows appear?"
         },
         {
             "task-id": 2.5,
@@ -78,7 +78,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why 'SELECT * FROM Countries WHERE Population BETWEEN 10000000 AND 100000000' correctly returns countries with populations between 10 million and 100 million. How does the BETWEEN keyword work? What is the effect of using '*' in SELECT? How does the WHERE clause filter rows based on the population range?"
         }
     ]
 }

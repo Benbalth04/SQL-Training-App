@@ -22,7 +22,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": "test"
+            "chatgpt-prompt": "Explain how the query 'SELECT Name FROM Countries' allows for the selection of only Country Names from the Countries table. What is the role of the SELECT keyword here, and what does the FROM keyword indicate? Why does specifying 'Name' instead of '*' change the result?"
         },
         {
             "task-id": 1.2,
@@ -36,7 +36,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why 'SELECT population FROM Countries' correctly retrieves only the population of each country. How does the SELECT keyword determine which column is returned? How does the FROM keyword specify the table being queried? How would the result differ if '*' was used instead of 'population'?"
         },
         {
             "task-id": 1.3,
@@ -50,7 +50,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why 'SELECT population, region FROM Countries' correctly retrieves both the population and region for each country. How does listing multiple columns after SELECT change the result set? What is the function of the FROM keyword in this query? How would the output differ if only one column was selected or if '*' was used?"
         }
     ]
 }

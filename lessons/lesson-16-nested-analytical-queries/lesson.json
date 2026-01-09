@@ -26,7 +26,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why this SQL query correctly creates a CTE that calculates the total population per region. How does SUM(Population) OVER (PARTITION BY Region) compute a total for each region? How does the CTE structure allow this calculation to be reused in the main SELECT? Why does each row still show individual country data along with the regional total?\n\nCorrect query:\nWITH RegionTotals AS (\n  SELECT Name,\n    Region,\n    Population,\n    SUM(Population) OVER (PARTITION BY Region) AS RegionTotal\n  FROM Countries\n)\n\nSELECT * FROM RegionTotals"
         },
         {
             "task-id": 16.2,
@@ -40,7 +40,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why this SQL query correctly ranks countries within each region by population using a CTE. How does the RANK() OVER (PARTITION BY Region ORDER BY Population DESC) function assign ranks within each region? Why does the CTE make it easier to include RegionTotal alongside the rank? How does the partitioning differ from a global ranking?\n\nCorrect query:\nWITH RegionTotals AS (\n  SELECT Name,\n    Region,\n    Population,\n    SUM(Population) OVER (PARTITION BY Region) AS RegionTotal\n  FROM Countries)\n\nSELECT Name,\n  Region,\n  Population,\n  RegionTotal, RANK() OVER (PARTITION BY Region ORDER BY Population DESC) AS RegionRank\nFROM RegionTotals"
         },
         {
             "task-id": 16.3,
@@ -54,7 +54,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why this SQL query correctly calculates running totals and previous country population per region. How does SUM(Population) OVER (PARTITION BY Region ORDER BY Population) compute the running total? How does LAG(Population) OVER (PARTITION BY Region ORDER BY Population) retrieve the previous row's population? Why does partitioning by region keep the calculations within each region rather than across all countries?\n\nCorrect query:\nSELECT\n  Name,\n  Region,\n  Population,\n  SUM(Population) OVER (PARTITION BY Region ORDER BY Population) AS RunningTotal,\n  LAG(Population) OVER (PARTITION BY Region ORDER BY Population) AS PrevPop\nFROM Countries"
         },
         {
             "task-id": 16.4,
@@ -68,7 +68,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why this SQL query correctly combines a CTE with multiple window functions to compute running total, previous population, and rank per region. How does using the CTE simplify combining SUM, LAG, and RANK calculations? How does each window function work within the PARTITION BY Region clause? Why does this approach allow all metrics to be shown together for each country without additional joins?\n\nCorrect query:\nWITH RegionMetrics AS (\n  SELECT\n    Name,\n    Region,\n    Population,\n    SUM(Population) OVER (PARTITION BY Region ORDER BY Population) AS RunningTotal,\n    LAG(Population) OVER (PARTITION BY Region ORDER BY Population) AS PrevPop\n  FROM Countries\n)\n\nSELECT\n  Name,\n  Region,\n  Population,\n  RunningTotal,\n  PrevPop,\n  RANK() OVER (PARTITION BY Region ORDER BY Population DESC) AS RegionRank\nFROM RegionMetrics"
         }
     ]
 }

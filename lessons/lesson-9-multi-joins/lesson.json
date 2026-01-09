@@ -30,7 +30,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why the following SQL query correctly lists each person with their city name. How does the SELECT statement determine which columns to return? What role does the INNER JOIN play in connecting the People and Cities tables? Why is the ON clause important here, and what would happen if it were omitted?\n\nCorrect query:\nSELECT\n  People.Name AS PersonName,\n  Cities.Name AS CityName\nFROM People\nINNER JOIN Cities ON People.CityID = Cities.CityID"
         },
         {
             "task-id": 9.2,
@@ -44,7 +44,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why this SQL query correctly retrieves each person's name along with their city and country. How does using table aliases like p, c, and co help in the query? How do the INNER JOINs link the tables together, and why is the order of the joins important? How does the ON clause define the relationships between the tables?\n\nCorrect query:\nSELECT\n  p.Name AS PersonName,\n  c.Name AS CityName,\n  co.Name AS CountryName\nFROM People p\nINNER JOIN Cities c ON p.CityID = c.CityID\nINNER JOIN Countries co ON c.CountryID = co.CountryID"
         },
         {
             "task-id": 9.3,
@@ -58,7 +58,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why this SQL query correctly lists people living in cities with populations over 5 million, including their city and country. How does the WHERE clause filter the results, and why must it come after the JOINs? How do the INNER JOINs ensure that the population data can be accessed from the Cities table? How do the SELECT columns determine the output of the query?\n\nCorrect query:\nSELECT\n  p.Name AS PersonName,\n  c.Name AS CityName,\n  co.Name AS CountryName\n  FROM People p\nINNER JOIN Cities c ON p.CityID = c.CityID\nINNER JOIN Countries co ON c.CountryID = co.CountryID\nWHERE c.Population > 5000000"
         },
         {
             "task-id": 9.4,
@@ -72,7 +72,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why this SQL query correctly counts the number of people per country. How does the COUNT function work in combination with GROUP BY? How do the INNER JOINs connect People to Cities and Cities to Countries? Why is grouping necessary here, and what would happen if the GROUP BY clause were omitted?\n\nCorrect query:\nSELECT\n  co.Name AS CountryName,\n  COUNT(p.PersonID) AS NumPeople\nFROM Countries co\nINNER JOIN Cities c ON co.CountryID = c.CountryID\nINNER JOIN People p ON p.CityID = c.CityID\nGROUP BY co.Name"
         },
         {
             "task-id": 9.5,
@@ -86,7 +86,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why this SQL query correctly retrieves people along with their city and country using table aliases. How do aliases like p, c, and co simplify the query? How do INNER JOINs combine the tables correctly? Why is the ON clause essential for joining, and how does it determine which records are matched?\n\nCorrect query:\nSELECT\n  p.Name AS PersonName,\n  c.Name AS CityName,\n  co.Name AS CountryName\nFROM People p\nINNER JOIN Cities c ON p.CityID = c.CityID\nINNER JOIN Countries co ON c.CountryID = co.CountryID"
         }
     ]
 }

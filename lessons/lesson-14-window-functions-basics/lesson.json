@@ -22,7 +22,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why this SQL query correctly computes a running total of the population for all countries ordered by population. How does the SUM() OVER (ORDER BY Population) clause work? What is the difference between a window function and a standard aggregate function? Why is the ORDER BY inside OVER important for the running total?\n\nCorrect query:\nSELECT\n  Name,\n  Population,\n  SUM(Population) OVER (ORDER BY Population) AS RunningTotal\nFROM Countries"
         },
         {
             "task-id": 14.2,
@@ -36,7 +36,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why this SQL query correctly calculates the total population per region for each country using a window function. How does the PARTITION BY clause affect the calculation? How does SUM() OVER differ from a GROUP BY aggregate? Why does each row still retain the individual country's data while computing the regional total?\n\nCorrect query:\nSELECT\n  Name,\n  Region,\n  Population,\n  SUM(Population) OVER (PARTITION BY Region) AS RegionTotal\nFROM Countries"
         },
         {
             "task-id": 14.3,
@@ -50,7 +50,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why this SQL query correctly finds the average population per region for each country using a window function. How does AVG() OVER (PARTITION BY Region) compute the average? How does the window function differ from using GROUP BY with AVG? Why does each row still show the individual country's data along with the region average?\n\nCorrect query:\nSELECT\n  Name,\n  Region,\n  Population,\n  AVG(Population) OVER (PARTITION BY Region) AS RegionAvg\nFROM Countries"
         },
         {
             "task-id": 14.4,
@@ -64,7 +64,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why this SQL query correctly determines, for each country, the maximum population within its region using a window function. How does MAX() OVER (PARTITION BY Region) calculate the maximum? How is this different from using GROUP BY with MAX? Why does each country still appear as a separate row with its own data?\n\nCorrect query:\nSELECT\n  Name,\n  Region,\n  Population,\n  MAX(Population) OVER (PARTITION BY Region) AS RegionMax\nFROM Countries"
         }
     ]
 }

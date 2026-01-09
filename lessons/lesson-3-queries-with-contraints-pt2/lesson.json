@@ -22,7 +22,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why 'SELECT * FROM Countries WHERE Name LIKE 'A%'' correctly returns countries whose names start with 'A'. How does the LIKE keyword work with the '%' wildcard? What does the WHERE clause do here, and how does using '*' affect the returned columns?"
         },
         {
             "task-id": 3.2,
@@ -36,7 +36,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why 'SELECT Name FROM Countries WHERE Name LIKE '%n%'' correctly returns countries whose names contain the letter 'n'. How does the '%' wildcard work before and after 'n'? What is the purpose of the WHERE clause in filtering results, and why is only the Name column selected?"
         },
         {
             "task-id": 3.3,
@@ -50,7 +50,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why 'SELECT DISTINCT Region FROM Countries' returns a list of unique regions. How does the DISTINCT keyword affect the result set? Why is only the Region column selected, and what would happen if DISTINCT was omitted?"
         },
         {
             "task-id": 3.4,
@@ -64,7 +64,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why 'SELECT Name FROM Countries WHERE Name NOT LIKE '%a%'' correctly returns countries whose names do not contain the letter 'a'. How does the NOT LIKE operator work with the '%' wildcard? How does the WHERE clause control which rows are included?"
         },
         {
             "task-id": 3.5,
@@ -78,7 +78,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why 'SELECT * FROM Countries WHERE Population IS NOT NULL' correctly returns all countries with a defined population. How does the IS NOT NULL condition filter out rows? What is the effect of using '*' in the SELECT clause, and why is the WHERE clause important here?"
         }
     ]
 }

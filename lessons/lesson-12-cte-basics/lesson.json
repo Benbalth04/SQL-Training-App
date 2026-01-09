@@ -22,7 +22,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why this SQL query correctly calculates the average population using a Common Table Expression (CTE). How does the WITH clause define the CTE? How is the inner SELECT used in the CTE, and how does the outer SELECT retrieve results from it? Why might using a CTE be preferable to a subquery in this case?\n\nCorrect query:\nWITH AvgPopulation AS (\n  SELECT AVG(Population) AS AvgPop FROM Countries\n)\n\nSELECT * FROM AvgPopulation"
         },
         {
             "task-id": 12.2,
@@ -36,7 +36,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why this SQL query correctly lists countries with population above the average using a CTE. How does the CTE AvgPopulation supply the average to the outer query? Why is it necessary to reference AvgPopulation.AvgPop in the WHERE clause? How does combining the CTE with the main table in the FROM clause allow this comparison?\n\nCorrect query:\nWITH AvgPopulation AS (\n  SELECT AVG(Population) AS AvgPop FROM Countries\n)\n\nSELECT Name, Population\nFROM Countries, AvgPopulation\nWHERE Population > AvgPopulation.AvgPop"
         },
         {
             "task-id": 12.3,
@@ -50,7 +50,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why this SQL query correctly chains two CTEs to first calculate total population and then find countries with population above average. How does TotalPopulation compute the total sum? How does AboveAverage reference TotalPopulation to calculate the average? Why is chaining CTEs useful for breaking down complex queries into steps? How does the outer SELECT retrieve results from the second CTE?\n\nCorrect query:\nWITH TotalPopulation AS (\n  SELECT SUM(Population) AS TotalPop FROM Countries\n),\n\nAboveAverage AS (\n  SELECT Name, Population FROM Countries\n  WHERE Population > (\n    SELECT TotalPop/COUNT(*) FROM TotalPopulation\n  )\n)\n\nSELECT * FROM AboveAverage"
         },
         {
             "task-id": 12.4,
@@ -64,7 +64,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why this SQL query correctly uses a CTE to rank countries by population and retrieve the top 3. How does the ORDER BY inside the CTE organize the rows? How does the outer SELECT with LIMIT retrieve only the top 3 records? Why might using a CTE be more readable than writing the ORDER BY and LIMIT directly in a single query?\n\nCorrect query:\nWITH RankedCountries AS\n  (SELECT Name, Population FROM Countries\n   ORDER BY Population DESC\n )\n\nSELECT Name, Population FROM RankedCountries\nLIMIT 3"
         }
     ]
 }

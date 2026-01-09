@@ -22,7 +22,7 @@
             "allow-dml": true,
             "create-tables": false,
             "preview-allowed": false,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why this SQL query correctly inserts a new row into the Countries table. How does the INSERT INTO statement specify the columns and their corresponding values? What happens when this query is executed, and how can you verify the new record?\n\nCorrect query:\nINSERT INTO Countries (Name, Region, Population)\nVALUES ('Testland', 'Oceania', 123456);"
         },
         {
             "task-id": 20.2,
@@ -36,7 +36,7 @@
             "allow-dml": true,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why this SQL query correctly updates the population of Australia. How does the UPDATE statement work together with SET to modify data? Why is the WHERE clause essential, and what could happen if it is omitted?\n\nCorrect query:\nUPDATE Countries\nSET Population = 27000000\nWHERE Name = 'Australia';"
         },
         {
             "task-id": 20.3,
@@ -50,7 +50,7 @@
             "allow-dml": true,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why this SQL query correctly deletes the row for 'Testland'. How does the DELETE FROM statement work with the WHERE clause to remove specific rows? What are the risks of omitting the WHERE clause?\n\nCorrect query:\nDELETE FROM Countries\nWHERE Name = 'Testland';"
         },
         {
             "task-id": 20.4,
@@ -64,7 +64,7 @@
             "allow-dml": true,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why this SQL query correctly drops the entire Countries table. What does the DROP TABLE statement do, and why is it irreversible? How does this differ from deleting rows using DELETE?\n\nCorrect query:\nDROP TABLE Countries;"
         }
     ]
 }

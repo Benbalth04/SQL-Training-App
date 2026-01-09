@@ -26,7 +26,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why 'SELECT Cities.Name AS CityName, Countries.Name AS CountryName FROM Cities INNER JOIN Countries ON Cities.CountryID = Countries.CountryID' correctly lists each city with its corresponding country. How does INNER JOIN work? What is the role of the ON clause, and why are column aliases used?"
         },
         {
             "task-id": 7.2,
@@ -40,7 +40,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why this query returns city names, populations, and country names. How does the INNER JOIN combine data from Cities and Countries? Why is the ON clause necessary, and how do column aliases improve readability?"
         },
         {
             "task-id": 7.3,
@@ -54,7 +54,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why 'SELECT ... INNER JOIN ... WHERE Cities.Population > 5000000' correctly returns only cities with populations over 5 million along with their countries. How does the WHERE clause filter after the join? Why is INNER JOIN needed to include country names?"
         },
         {
             "task-id": 7.4,
@@ -68,7 +68,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why 'SELECT Countries.Name AS CountryName, COUNT(Cities.CityID) AS NumCities FROM Countries INNER JOIN Cities ON Countries.CountryID = Cities.CountryID GROUP BY Countries.Name' correctly counts cities per country. How does GROUP BY work with aggregation functions after a join? What is the role of COUNT(Cities.CityID)?"
         },
         {
             "task-id": 7.5,
@@ -82,7 +82,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why using table aliases like 'c' for Cities and 'co' for Countries helps when joining tables. How does 'SELECT c.Name AS CityName, co.Name AS CountryName FROM Cities c INNER JOIN Countries co ON c.CountryID = co.CountryID' return city and country names? How does the ON clause link the two tables?"
         }
     ]
 }

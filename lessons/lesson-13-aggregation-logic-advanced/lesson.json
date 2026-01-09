@@ -26,7 +26,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why this SQL query correctly counts the number of countries with a population over 100 million using a conditional aggregate. How does the CASE statement work inside the COUNT function? Why does COUNT only include rows where the CASE expression evaluates to 1? How is this different from using a WHERE clause?\n\nCorrect query:\nSELECT COUNT(CASE WHEN Population > 100000000 THEN 1 END) AS LargeCountries\nFROM Countries"
         },
         {
             "task-id": 13.2,
@@ -40,7 +40,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why this SQL query correctly calculates the total and average population per region. How do the SUM and AVG aggregate functions operate on grouped data? Why is the GROUP BY clause necessary? How does the query ensure that each region gets a single row with the calculated totals and averages?\n\nCorrect query:\nSELECT\n  Region,\n  SUM(Population) AS TotalPopulation,\n  AVG(Population) AS AvgCountryPopulation\nFROM Countries\nGROUP BY Region"
         },
         {
             "task-id": 13.3,
@@ -54,7 +54,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why this SQL query correctly lists countries along with the number of cities they have. How does the LEFT JOIN ensure countries with zero cities are included? How does COUNT(ci.CityID) work in combination with the join? Why is GROUP BY co.Name necessary for the aggregation?\n\nCorrect query:\nSELECT\n  co.Name,\n  COUNT(ci.CityID) AS NumCities\nFROM Countries co\nLEFT JOIN Cities ci ON co.CountryID = ci.CountryID\nGROUP BY co.Name"
         },
         {
             "task-id": 13.4,
@@ -68,7 +68,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why this SQL query correctly counts, for each region, how many cities have populations greater than 5 million. How does adding a condition to the LEFT JOIN filter the cities included in the COUNT? How does GROUP BY co.Region aggregate the results per region? Why is the conditional join approach used instead of a WHERE clause?\n\nCorrect query:\nSELECT\n  co.Region,\n  COUNT(ci.CityID) AS LargeCities\nFROM Countries co\nLEFT JOIN Cities ci ON co.CountryID = ci.CountryID AND ci.Population > 5000000\nGROUP BY co.Region"
         }
     ]
 }

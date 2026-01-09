@@ -18,7 +18,7 @@
             "allow-dml": false,
             "create-tables": true,
             "preview-allowed": false,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why this SQL query correctly creates a basic table named Sample. How does the CREATE TABLE statement define columns and their types? Why is ID set as INTEGER PRIMARY KEY, and what does that imply? How does defining Description as TEXT allow for storing any textual data?\n\nCorrect query:\nCREATE TABLE Sample (\n  ID INTEGER PRIMARY KEY,\n  Description TEXT\n);"
         },
         {
             "task-id": 18.2,
@@ -33,7 +33,7 @@
             "allow-dml": false,
             "create-tables": true,
             "preview-allowed": false,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why this SQL query correctly creates a table named Continents with the specified constraints. How does AUTOINCREMENT work with PRIMARY KEY for ContinentID? Why are Name, Size, and CountryCount marked as NOT NULL? How does this structure enforce data integrity and ensure every continent has the required information?\n\nCorrect query:\nCREATE TABLE Continents (\n  ContinentID INTEGER PRIMARY KEY AUTOINCREMENT,\n  Name TEXT NOT NULL,\n  Size INTEGER NOT NULL,\n  CountryCount INTEGER NOT NULL\n);"
         }
     ]
 }

@@ -22,7 +22,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why 'SELECT Name FROM Countries ORDER BY Name ASC' returns country names in alphabetical order. How does the ORDER BY clause work? What does ASC mean, and what would happen if it was DESC instead? Why is only the Name column selected here?"
         },
         {
             "task-id": 4.2,
@@ -36,7 +36,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why 'SELECT Name, Population FROM Countries ORDER BY Population DESC' returns countries sorted by population from largest to smallest. How does the ORDER BY clause affect the sorting? What does DESC do, and how would ASC change the result? Why are multiple columns listed after SELECT?"
         },
         {
             "task-id": 4.3,
@@ -50,7 +50,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why 'SELECT * FROM Countries ORDER BY Region ASC LIMIT 3' returns only the first three countries alphabetically by region. How does ORDER BY combined with ASC determine order? How does LIMIT control the number of rows returned? What is the effect of using '*' in the SELECT clause?"
         },
         {
             "task-id": 4.4,
@@ -64,7 +64,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why 'SELECT Name, Population FROM Countries ORDER BY Population DESC, Name ASC' sorts countries first by population descending and then by name ascending for ties. How does the ORDER BY clause handle multiple columns? What is the significance of DESC and ASC here? Why are Name and Population both selected?"
         },
         {
             "task-id": 4.5,
@@ -78,7 +78,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why 'SELECT Name, Population FROM Countries ORDER BY Population DESC LIMIT 1' returns only the country with the largest population. How does ORDER BY combined with DESC determine the highest population first? How does LIMIT 1 restrict the output to a single row? Why are Name and Population included in the SELECT clause?"
         }
     ]
 }

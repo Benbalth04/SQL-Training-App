@@ -30,7 +30,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why this SQL query correctly retrieves the population of Japan using a scalar subquery. What is a scalar subquery, and how does it differ from other subquery types? How does the SELECT inside the parentheses interact with the outer SELECT? Why is it important that the inner query returns only one value?\n\nCorrect query:\nSELECT\n  (SELECT Population FROM Countries WHERE Name = 'Japan')\nAS JapanPopulation"
         },
         {
             "task-id": 11.2,
@@ -44,7 +44,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why this SQL query correctly lists people living in countries in Asia using a table subquery. How does the IN keyword work with a subquery? What role does the inner SELECT play in filtering the People table? Why must the subquery return a list of values rather than a single value?\n\nCorrect query:\nSELECT Name, Age\nFROM People\nWHERE CountryID IN\n(SELECT CountryID FROM Countries WHERE Region = 'Asia')"
         },
         {
             "task-id": 11.3,
@@ -58,7 +58,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why this SQL query correctly finds countries with populations above the average using a subquery. How does the AVG function work in the inner SELECT? How does the comparison operator in the WHERE clause interact with the subquery result? Why is it important that the subquery returns a single scalar value?\n\nCorrect query:\nSELECT Name, Population\nFROM Countries\nWHERE Population > (SELECT AVG(Population) FROM Countries)"
         },
         {
             "task-id": 11.4,
@@ -72,7 +72,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why this SQL query correctly retrieves people living in the most populous city of each country using a correlated subquery. What makes this subquery correlated, and how does it reference the outer query? How does the MAX function determine the largest population per country? Why must the WHERE clause inside the subquery refer to c.CountryID from the outer query?\n\nCorrect query:\nSELECT\n  p.Name,\n  c.Name AS CityName\nFROM People p\nJOIN Cities c ON p.CityID = c.CityID\nWHERE c.Population = (\n  SELECT MAX(Population) FROM Cities\n  WHERE CountryID = c.CountryID\n)"
         },
         {
             "task-id": 11.5,
@@ -86,7 +86,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why this SQL query correctly lists countries with fewer people than the country containing 'New York' using nested subqueries. How do the multiple levels of subqueries work together? Why is the innermost subquery needed to find the CountryID of 'New York'? How does the outer WHERE clause compare populations using the value returned from the nested subqueries?\n\nCorrect query:\nSELECT\n  Name,\n  Population\nFROM Countries\nWHERE Population < (\n  SELECT Population FROM Countries\n  WHERE CountryID = (\n    SELECT CountryID FROM Cities\n    WHERE Name = 'New York'\n  )\n)"
         }
     ]
 }

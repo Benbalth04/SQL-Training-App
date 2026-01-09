@@ -31,7 +31,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why this SQL query correctly lists each person alongside their manager using a self join. How does the LEFT JOIN differ from an INNER JOIN in this context? Why is the People table referenced twice with different aliases (p and m)? How does the ON clause ensure the correct manager is matched to each person?\n\nCorrect query:\nSELECT\n  p.Name AS Person,\n  m.Name AS Manager\nFROM People\nLEFT JOIN People m ON p.ManagerID = m.PersonID"
         },
         {
             "task-id": 10.2,
@@ -45,7 +45,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why this SQL query correctly joins Cities and Countries using two conditions. How does specifying multiple conditions in the ON clause work? Why are table aliases like c and co useful? What would happen if only one of the conditions (CountryID or Region) was used?\n\nCorrect query:\nSELECT * FROM Cities c\nJOIN Countries co ON c.CountryID = co.CountryID\n  AND c.Region = co.Region"
         },
         {
             "task-id": 10.3,
@@ -59,7 +59,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why this SQL query correctly matches each person to a country based on age ranges using a non-equijoin. How does the BETWEEN operator work in the ON clause? Why is this different from a standard equality join? How do the SELECT columns determine the output of the join?\n\nCorrect query:\nSELECT\n  p.Name,\n  c.CountryName\nFROM People p\nJOIN Countries c ON p.Age BETWEEN c.MinAge AND c.MaxAge"
         },
         {
             "task-id": 10.4,
@@ -73,7 +73,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why this SQL query correctly finds all pairs of cities within the same country using a self join. How does the condition c1.CityID <> c2.CityID prevent a city from pairing with itself? Why are aliases like c1 and c2 necessary for self joins? How does the ON clause combine the country condition with the inequality condition?\n\nCorrect query:\nSELECT\n  c1.CityName AS CityA,\n  c2.CityName AS CityB\nFROM Cities c1\nJOIN Cities c2 ON c1.CountryID = c2.CountryID\n  AND c1.CityID <> c2.CityID"
         },
         {
             "task-id": 10.5,
@@ -87,7 +87,7 @@
             "allow-dml": false,
             "create-tables": false,
             "preview-allowed": true,
-            "chatgpt-prompt": true
+            "chatgpt-prompt": "Explain why this SQL query correctly lists people living in cities with a population greater than 8,400,000, along with their city and country. How do multiple INNER JOINs combine People, Cities, and Countries? How does the WHERE clause filter the results based on population? Why is the order of joins important before applying the WHERE condition?\n\nCorrect query:\nSELECT\n  p.Name,\n  c.CityName,\n  co.CountryName\nFROM People p\nJOIN Cities c ON p.CityID = c.CityID\nJOIN Countries co ON c.CountryID = co.CountryID\nWHERE c.population > 8400000"
         }
     ]
 }
