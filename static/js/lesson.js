@@ -349,11 +349,21 @@ function showAnswerPopup(error, task, message) {
 
     // If the ChatGPT button is clicked, open it in a new tab with prompt injection in the URL
     chatgpt_button.addEventListener('click', function() {
-        const newTab = window.open(task["chatgpt-prompt"]);
-        if (newTab) {
-            newTab.focus();
-        }
-    });
+    // Get the plain text prompt
+    const promptText = task["chatgpt-prompt"]; 
+
+    // Encode the prompt for URL
+    const encodedPrompt = encodeURIComponent(promptText);
+
+    // Build the ChatGPT URL with the prompt parameter
+    const chatgptURL = `https://chat.openai.com/?prompt=${encodedPrompt}`;
+
+    // Open in a new tab
+    const newTab = window.open(chatgptURL);
+    if (newTab) {
+        newTab.focus();
+    }
+});
 }
 
 function closeAnswerPopup() {
