@@ -17,7 +17,8 @@
             "large-query": true,
             "allow-dml": false,
             "create-tables": true,
-            "preview-allowed": false
+            "preview-allowed": false,
+            "chatgpt-prompt": true
         }
     ]
 }

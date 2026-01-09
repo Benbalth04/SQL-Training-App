@@ -324,12 +324,12 @@ function showAnswerPopup(error, task, message) {
     const overlay = document.getElementById("answer-overlay");
     const popupText = document.getElementById("answer-popup-text");
     const popupSql = document.getElementById("answer-popup-sql");
+    const chatgpt_button = document.getElementById("chatgpt-answer-link-btn")
 
     // Reset
     popupText.innerText = '';
     popupSql.innerHTML = '';
     popupSql.style.display = "none";
-
     popup.classList.remove("error", "success");
     
     // Show popup + overlay
@@ -346,6 +346,14 @@ function showAnswerPopup(error, task, message) {
     popupText.innerText = `Task ${task["task-id"]} Answer: ${task["description"]}`;
     popupSql.style.display = "block";
     popupSql.innerHTML = `<pre><code class="language-sql">${message}</code></pre>`;
+
+    // If the ChatGPT button is clicked, open it in a new tab with prompt injection in the URL
+    chatgpt_button.addEventListener('click', function() {
+        const newTab = window.open(task["chatgpt-prompt"]);
+        if (newTab) {
+            newTab.focus();
+        }
+    });
 }
 
 function closeAnswerPopup() {

@@ -605,7 +605,23 @@ pre code.language-sql {
     background: #aaa;
     transition: background 0.2s ease;
     text-align: center;
-    width: 30%;
+    width: 40%;
+}
+
+.answer-chatgpt-button {
+    margin: 0.5rem auto 1.2rem auto;
+
+    padding: 0.6rem 1.4rem;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    color: white;
+
+    /* Transitional default */
+    background: #aaa;
+    transition: background 0.2s ease;
+    text-align: center;
+    width: 40%;
 }
 
 /* Success button color */

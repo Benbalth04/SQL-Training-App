@@ -1016,7 +1016,7 @@ def evaluate_submission(lesson_id: str, task_id: float):
 @app.get("/lessons/answer/<lesson_id>/<float:task_id>")
 def get_task_answer(lesson_id: str, task_id: float):
     """
-    Returns the answer SQL code for a given task (correct-query field in the lesson.json)
+    Returns the answer SQL code for a given task (correct-query field in the lesson.json), as well as the Chat-GPT URL to explain the question
     Will raise a 403 (forbidden error) if the timer is active
     Will raise a 404 (not found error) if the task number is not valid
     """
@@ -1031,7 +1031,9 @@ def get_task_answer(lesson_id: str, task_id: float):
     tasks = lesson.get("exercise-tasks")
     for task in tasks:
         if task.get("task-id") == task_id:
-            return jsonify({"answer": f"{task.get("correct-query")}"}), 200
+            return jsonify({"answer": f"{task.get("correct-query")}", 
+                "chatgpt-prompt": f"{task.get("chatgpt-prompt")}"
+            }), 200
 
     return jsonify({"error": f"unable to fetch an answer for task ({task_id})"}), 404
 
@@ -1177,4 +1179,4 @@ if __name__ == "__main__":
         print(f"Loaded {len(LESSON_LIST)} lessons")
         print(f"Loaded {len(TASKS_LIST)} tasks")
         webbrowser.open_new(APP_URL)
-        app.run(host="0.0.0.0", port=8000, debug=True, use_reloader=False)
+        app.run(host="0.0.0.0", port=8000, debug=True, use_reloader=True)

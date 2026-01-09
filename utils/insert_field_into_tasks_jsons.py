@@ -7,7 +7,7 @@ current_dir = Path(__file__).resolve().parent
 # Path to lessons directory
 lessons_dir = current_dir.parent / "lessons"
 
-INSERT_FIELD = "preview-allowed"
+INSERT_FIELD = "chatgpt-prompt"
 DEFAULT_VALUE = True
 
 # Iterate over lesson directories

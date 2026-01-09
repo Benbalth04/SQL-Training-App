@@ -17,7 +17,8 @@
             "large-query": false,
             "allow-dml": false,
             "create-tables": true,
-            "preview-allowed": false
+            "preview-allowed": false,
+            "chatgpt-prompt": true
         },
         {
             "task-id": 19.2,
@@ -31,7 +32,8 @@
             "large-query": false,
             "allow-dml": false,
             "create-tables": true,
-            "preview-allowed": false
+            "preview-allowed": false,
+            "chatgpt-prompt": true
         }
     ]
 }

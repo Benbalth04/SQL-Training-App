@@ -25,7 +25,8 @@
             "large-query": false,
             "allow-dml": false,
             "create-tables": false,
-            "preview-allowed": true
+            "preview-allowed": true,
+            "chatgpt-prompt": true
         },
         {
             "task-id": 13.2,
@@ -38,7 +39,8 @@
             "large-query": false,
             "allow-dml": false,
             "create-tables": false,
-            "preview-allowed": true
+            "preview-allowed": true,
+            "chatgpt-prompt": true
         },
         {
             "task-id": 13.3,
@@ -51,7 +53,8 @@
             "large-query": false,
             "allow-dml": false,
             "create-tables": false,
-            "preview-allowed": true
+            "preview-allowed": true,
+            "chatgpt-prompt": true
         },
         {
             "task-id": 13.4,
@@ -64,7 +67,8 @@
             "large-query": false,
             "allow-dml": false,
             "create-tables": false,
-            "preview-allowed": true
+            "preview-allowed": true,
+            "chatgpt-prompt": true
         }
     ]
 }
