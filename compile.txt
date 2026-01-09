@@ -2,4 +2,4 @@
 ## Paste the following command into the terminal (ensure you have the root folder as your current directory):
 ## --------------------------------------------------------------------------------------------------------
 
-python -m PyInstaller --name "Deloitte SQL Training App" --add-data "static;static" --add-data "lessons;lessons" --onefile --noconsole --icon=static\assets\icon.ico app.py
+python -m PyInstaller --name "SQL Training App" --add-data "static;static" --add-data "lessons;lessons" --onefile --noconsole --icon=static\assets\icon.ico app.py

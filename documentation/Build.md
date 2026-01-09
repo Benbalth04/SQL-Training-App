@@ -6,7 +6,7 @@ To compile the code into the executable, you need to run the following command i
 **Ensure you have the PyInstaller Python package installed by running the install_requirements.py file in the /tools folder.**
 
 ```
-python -m PyInstaller --name "Deloitte SQL Training App" --add-data "static;static" --add-data "lessons;lessons" --onefile --noconsole --icon=static\assets\icon.ico app.py
+python -m PyInstaller --name "SQL Training App" --add-data "static;static" --add-data "lessons;lessons" --onefile --noconsole --icon=static\assets\icon.ico app.py
 ```
 
 ### After Running The Build Command

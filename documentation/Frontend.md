@@ -16,7 +16,7 @@ static/
 │   └── ...               # CSS theme, layout, animations
 │
 ├── assets/
-│   └── ...               # Deloitte icons, images, branding files
+│   └── ...               # Icons, images, branding files
 │
 └── scripts/
     ├── lesson.js         # Main interactive lesson engine (dynamically loads lesson content using lesson-id in the URL)
