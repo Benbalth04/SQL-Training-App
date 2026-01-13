@@ -81,7 +81,7 @@ body .content {
     padding: 10px;
     text-align: center;
 
-    background: #5b8115;
+    background: #33490b;
     color: white;
     border-radius: 6px;
 
@@ -90,7 +90,7 @@ body .content {
 }
 
 .card-button-complete:hover {
-    background: rgb(98, 136, 26);
+    background: #405c0e;
 }
 
 /* Filter container */

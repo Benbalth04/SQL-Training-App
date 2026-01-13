@@ -71,7 +71,7 @@ function renderLessons(lessons) {
         card.innerHTML = `
             <div class="card-title">${lesson.title}: ${lesson.subtitle} (${lesson.difficulty})</div>
             <a class=${lesson.completed ? 'card-button-complete': 'card-button'} href="lesson/${lesson.id}">
-                ${lesson.completed ? 'Lesson Complete': 'Go to Lesson'}
+                ${lesson.completed ? 'Completed': 'Go to Lesson'}
             </a>
         `;
 
