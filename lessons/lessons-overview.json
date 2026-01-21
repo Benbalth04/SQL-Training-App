@@ -159,6 +159,14 @@
             "lesson-order": 20,
             "key-topics": "Basic INSERT, DELETE, DROP, UPDATE",
             "difficulty": "Beginner"
+        },
+        {
+            "lesson-id": "lesson-21-creating-indexes",
+            "title": "Lesson 21",
+            "subtitle": "Creating Indexes",
+            "lesson-order": 21,
+            "key-topics": "Indexing",
+            "difficulty": "Intermediate"
         }
     ]
 }

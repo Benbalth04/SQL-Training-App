@@ -1,0 +1,56 @@
+{
+    "lesson-id": "lesson-21-creating-indexes",
+    "title": "Lesson 21",
+    "subtitle": "Creating Indexes",
+    "lesson-order": 21,
+    "database-tables": [
+        {
+            "name": "Countries",
+            "priority": 1
+        }
+    ],
+    "exercise-tasks": [
+        {
+            "task-id": 21.1,
+            "description": "Create an index on the Name column in the Countries table",
+            "correct-query": "CREATE INDEX idx_countries_name ON Countries (Name)",
+            "verify-query": "CREATE INDEX idx_countries_name ON Countries (Name)",
+            "order-sensitive": false,
+            "exercise-order": 1,
+            "initial-query": "SELECT * FROM Countries",
+            "large-query": false,
+            "allow-dml": true,
+            "create-tables": false,
+            "preview-allowed": false,
+            "chatgpt-prompt": "Explain why this CREATE INDEX statement is valid. What table and column does it reference, and how would this index help queries that search for countries by name?\n\nCorrect query:\nCREATE INDEX idx_countries_name ON Countries (Name)"
+        },
+        {
+            "task-id": 21.2,
+            "description": "Create an index on the Region column in the Countries table",
+            "correct-query": "CREATE INDEX idx_countries_region ON Countries (Region)",
+            "verify-query": "CREATE INDEX idx_countries_region ON Countries (Region)",
+            "order-sensitive": false,
+            "exercise-order": 2,
+            "initial-query": "SELECT * FROM Countries",
+            "large-query": false,
+            "allow-dml": true,
+            "create-tables": false,
+            "preview-allowed": false,
+            "chatgpt-prompt": "Explain what this index does and why indexing the Region column could improve performance for queries that filter by region, such as finding all countries in Oceania.\n\nCorrect query:\nCREATE INDEX idx_countries_region ON Countries (Region)"
+        },
+        {
+            "task-id": 21.3,
+            "description": "Create an index on the Population column in the Countries table",
+            "correct-query": "CREATE INDEX idx_countries_population ON Countries (Population)",
+            "verify-query": "CREATE INDEX idx_countries_population ON Countries (Population)",
+            "order-sensitive": false,
+            "exercise-order": 3,
+            "initial-query": "SELECT * FROM Countries",
+            "large-query": false,
+            "allow-dml": true,
+            "create-tables": false,
+            "preview-allowed": false,
+            "chatgpt-prompt": "Explain why creating an index on a numeric column like Population can be useful. What types of queries would benefit from this index, and are there cases where it might not be necessary?\n\nCorrect query:\nCREATE INDEX idx_countries_population ON Countries (Population)"
+        }
+    ]
+}
