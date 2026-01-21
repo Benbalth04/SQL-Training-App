@@ -4,14 +4,14 @@ from pathlib import Path
 
 # ------------------------------------------------------------
 # Update before running 
-lesson_number = 7
+lesson_number = 21
 # ------------------------------------------------------------
 
 if not isinstance(lesson_number, int) or lesson_number <= 0:
     raise ValueError(f"Invalid lesson number: {lesson_number}")
 
 current_dir = Path(__file__).resolve().parent
-lessons_root = current_dir.parent / "lessons"
+lessons_root = current_dir.parent.parent / "lessons"
 overview_file = lessons_root / "lessons-overview.json"
 
 # ------------------------------------------------------------

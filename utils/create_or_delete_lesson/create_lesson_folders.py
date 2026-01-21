@@ -5,7 +5,7 @@ from pathlib import Path
 current_dir = Path(__file__).resolve().parent
 
 # Path to lessons-overview.json
-lesson_overview_file = current_dir.parent / "lessons" / "lessons-overview.json"
+lesson_overview_file = current_dir.parent.parent / "lessons" / "lessons-overview.json"
 
 # Load JSON
 with open(lesson_overview_file, "r", encoding="utf-8") as f:

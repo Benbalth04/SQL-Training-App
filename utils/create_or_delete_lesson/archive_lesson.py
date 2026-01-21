@@ -14,7 +14,7 @@ if not isinstance(lesson_number_to_archive, int) or lesson_number_to_archive <= 
 # Current directory of this script
 current_dir = Path(__file__).resolve().parent
 
-lessons_root = current_dir.parent / "lessons"
+lessons_root = current_dir.parent.parent / "lessons"
 archive_folder = lessons_root / "lessons-archive"
 lesson_overview_file = lessons_root / "lessons-overview.json"
 
