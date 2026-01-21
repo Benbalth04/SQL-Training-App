@@ -46,6 +46,20 @@
             "create-tables": false,
             "preview-allowed": true,
             "chatgpt-prompt": "Explain why this SQL query correctly lists people living in cities with a population greater than 8,400,000, along with their city and country. How do multiple INNER JOINs combine People, Cities, and Countries? How does the WHERE clause filter the results based on population? Why is the order of joins important before applying the WHERE condition?\n\nCorrect query:\nSELECT\n  p.Name,\n  c.CityName,\n  co.CountryName\nFROM People p\nJOIN Cities c ON p.CityID = c.CityID\nJOIN Countries co ON c.CountryID = co.CountryID\nWHERE c.population > 8400000"
+        },
+        {
+            "task-id": 10.3,
+            "description": "Use a CROSS JOIN to generate all possible combinations of countries and cities. Show the country name and the city name.",
+            "correct-query": "SELECT\n  co.Name AS CountryName,\n  c.Name AS CityName\nFROM Countries co\nCROSS JOIN Cities c",
+            "verify-query": "SELECT co.Name AS CountryName, c.Name AS CityName FROM Countries co CROSS JOIN Cities c",
+            "order-sensitive": false,
+            "exercise-order": 3,
+            "initial-query": "SELECT * FROM Countries",
+            "large-query": false,
+            "allow-dml": false,
+            "create-tables": false,
+            "preview-allowed": true,
+            "chatgpt-prompt": "Explain what a CROSS JOIN does in SQL and why this query produces every possible combination of countries and cities. Why is there no ON clause in a CROSS JOIN? In what scenarios is this type of join useful, and what are the risks if it is used unintentionally?\n\nCorrect query:\nSELECT\n  co.CountryName,\n  c.CityName\nFROM Countries co\nCROSS JOIN Cities c"
         }
     ]
 }

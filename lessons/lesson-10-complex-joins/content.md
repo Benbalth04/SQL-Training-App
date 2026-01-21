@@ -45,4 +45,23 @@ Here, the join uses a range condition (BETWEEN) instead of a simple equality. No
 
 Advanced joins like these are powerful tools for analysing complex relationships, hierarchies, and conditional groupings in your datasets. They expand the scenarios where SQL can combine and interpret data meaningfully.
 
+### Cross Joins
+A cross join returns the Cartesian product of two tables — every row from the first table is combined with every row from the second table. Unlike other joins, a cross join does not use a join condition.
+Cross joins are useful when you intentionally need to **generate all possible combinations**, such as:
+- Creating date or time grids
+- Generating test data
+- Expanding dimensions (e.g. every product × every region)
+
+```sql
+-- Example: Generate all combinations of products and regions
+SELECT 
+    p.ProductName,
+    r.RegionName
+FROM Products p
+CROSS JOIN Regions r;
+```
+If Products has 10 rows and Regions has 5 rows, the result will contain 50 rows.
+
+**Important**: Because row counts multiply quickly, cross joins can become extremely expensive if used unintentionally. Always be certain that a Cartesian product is what you want.
+
 ### **Exercise**
