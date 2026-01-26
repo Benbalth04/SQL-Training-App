@@ -324,14 +324,15 @@ function showAnswerPopup(error, task, message) {
     const overlay = document.getElementById("answer-overlay");
     const popupText = document.getElementById("answer-popup-text");
     const popupSql = document.getElementById("answer-popup-sql");
-    const chatgpt_button = document.getElementById("chatgpt-answer-link-btn")
+    const chatgptButton = document.getElementById("chatgpt-answer-link-btn");
 
-    // Reset
+    // Reset state
     popupText.innerText = '';
     popupSql.innerHTML = '';
     popupSql.style.display = "none";
     popup.classList.remove("error", "success");
-    
+    chatgptButton.hidden = true;
+
     // Show popup + overlay
     popup.classList.add("active");
     overlay.classList.add("active");
@@ -347,24 +348,27 @@ function showAnswerPopup(error, task, message) {
     popupSql.style.display = "block";
     popupSql.innerHTML = `<pre><code class="language-sql">${message}</code></pre>`;
 
-    // If the ChatGPT button is clicked, open it in a new tab with prompt injection in the URL
-    chatgpt_button.addEventListener('click', function() {
-    // Get the plain text prompt
-    const promptText = task["chatgpt-prompt"]; 
+    chatgptButton.hidden = false;
 
-    // Encode the prompt for URL
-    const encodedPrompt = encodeURIComponent(promptText);
+    // SINGLE click handler
+    chatgptButton.onclick = () => {
+        // Get the plain text prompt
+        const promptText = task["chatgpt-prompt"]; 
 
-    // Build the ChatGPT URL with the prompt parameter
-    const chatgptURL = `https://chat.openai.com/?prompt=${encodedPrompt}`;
+        // Encode the prompt for URL
+        const encodedPrompt = encodeURIComponent(promptText);
 
-    // Open in a new tab
-    const newTab = window.open(chatgptURL);
-    if (newTab) {
-        newTab.focus();
-    }
-});
+        // Build the ChatGPT URL with the prompt parameter
+        const chatgptURL = `https://chatgpt.com/?prompt=${encodedPrompt}`;
+
+        // Open in a new tab
+        const newTab = window.open(chatgptURL);
+        if (newTab) {
+            newTab.focus();
+        }
+    };
 }
+
 
 function closeAnswerPopup() {
     const popup = document.getElementById("answer-popup");

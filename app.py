@@ -29,6 +29,7 @@ import sqlite3
 import requests
 import tempfile
 import os
+import sys
 import concurrent.futures
 from pathlib import Path
 from datetime import datetime
@@ -1167,6 +1168,7 @@ if __name__ == "__main__":
     if check_if_running():
         print("App already running. Skipping initialization...")
         webbrowser.open_new(APP_URL)
+        sys.exit(0)
     else:
         print("No existing instance found. Running full startup...")
         DB_PATH = "file:shared_db?mode=memory&cache=shared"
