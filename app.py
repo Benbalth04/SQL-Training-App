@@ -393,7 +393,7 @@ def read_db_table(table_name: str):
     except Exception as e:
         return {"error": str(e)}
 
-def execute_with_timeout(func, *args, timeout=QUERY_TIMEOUT, **kwargs):
+def execute_sql_with_timeout(func, *args, timeout=QUERY_TIMEOUT, **kwargs):
     """Run any function in a separate thread with a hard timeout."""
     with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:
         future = executor.submit(func, *args, **kwargs)
@@ -499,7 +499,7 @@ def run_readonly_query(sql: str, row_limit: int = 200):
 
 def safe_run_readonly(sql: str, row_limit=200):
     """Run a SELECT / read-only query safely with timeout."""
-    return execute_with_timeout(run_readonly_query, sql, row_limit=row_limit)
+    return execute_sql_with_timeout(run_readonly_query, sql, row_limit=row_limit)
 
 def normalize_and_sort_rows(rows):
     """
